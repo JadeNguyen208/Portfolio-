@@ -208,7 +208,7 @@ canvas{display:none!important}
     <span class="hero-name">Jade Nguyen</span>
     <div class="hero-sub">Based in <span>United Kingdom</span> &nbsp;·&nbsp; Available for remote &amp; UK opportunities</div>
   </div>
-  <canvas id="sphere" style="position:absolute;right:4%;bottom:8%;width:130px;height:130px;z-index:3;pointer-events:none"></canvas>
+  <canvas id="sphere" style="position:absolute;right:4%;bottom:8%;width:170px;height:170px;z-index:3;pointer-events:none"></canvas>
   <div class="scroll-hint">
     <span class="scroll-hint-text">scroll</span>
     <div class="scroll-arrow"></div>
@@ -391,17 +391,17 @@ canvas{display:none!important}
 var sc=document.getElementById('sphere');
 if(sc){
   var sx=sc.getContext('2d');
-  sc.width=130;sc.height=130;
+  sc.width=170;sc.height=170;
   var spts=[];var total=220;
   for(var i=0;i<total;i++){var phi=Math.acos(-1+(2*i)/total);var theta=Math.sqrt(total*Math.PI)*phi;spts.push({ox:Math.sin(phi)*Math.cos(theta),oy:Math.sin(phi)*Math.sin(theta),oz:Math.cos(phi)});}
   var sAngle=0;
   function drawSphere(){
-    sx.clearRect(0,0,130,130);sAngle+=0.006;
-    var cx=65,cy=65,r=50;
+    sx.clearRect(0,0,170,170);sAngle+=0.006;
+    var cx=85,cy=85,r=65;
     var sorted=spts.map(function(p){var x=p.ox*Math.cos(sAngle)-p.oz*Math.sin(sAngle);var z=p.ox*Math.sin(sAngle)+p.oz*Math.cos(sAngle);return{sx:cx+x*r,sy:cy+p.oy*r,z:z};});
     sorted.sort(function(a,b){return a.z-b.z;});
     sorted.forEach(function(p){var n=(p.z+1)/2;sx.beginPath();sx.arc(p.sx,p.sy,0.8+n*2.8,0,Math.PI*2);sx.fillStyle='rgba(247,212,76,'+Math.min(0.95,(0.2+n*0.85)).toFixed(2)+')';sx.fill();});
-    var g=sx.createRadialGradient(cx,cy,30,cx,cy,65);g.addColorStop(0,'rgba(247,212,76,0)');g.addColorStop(1,'rgba(247,212,76,0.12)');sx.beginPath();sx.arc(cx,cy,62,0,Math.PI*2);sx.fillStyle=g;sx.fill();
+    var g=sx.createRadialGradient(cx,cy,40,cx,cy,85);g.addColorStop(0,'rgba(247,212,76,0)');g.addColorStop(1,'rgba(247,212,76,0.12)');sx.beginPath();sx.arc(cx,cy,80,0,Math.PI*2);sx.fillStyle=g;sx.fill();
     requestAnimationFrame(drawSphere);
   }
   drawSphere();
