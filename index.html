@@ -15,13 +15,13 @@ body{font-family:'Jost',sans-serif;background:#000;color:#fff;overflow-x:hidden}
 .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(247,212,76,0.18),transparent)}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 52px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(247,212,76,0.1)}
-.nav-logo{font-family:‘Cormorant SC’,serif;font-size:13px;letter-spacing:5px;color:#f7d44c;font-weight:700;line-height:1.5;border:1px solid rgba(247,212,76,0.3);padding:5px 14px;margin-right:20px}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.75);text-decoration:none;transition:color .2s;font-weight:500}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 52px;height:64px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(247,212,76,0.1)}
+.nav-logo{font-family:‘Cormorant SC’,serif;font-size:13px;letter-spacing:5px;color:#f7d44c;font-weight:700;line-height:1.5;border:1px solid rgba(247,212,76,0.4);padding:6px 14px}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .2s;font-weight:500}
 .nav-links a:hover{color:#f7d44c}
-.nav-pdf{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f7d44c;border:1px solid rgba(247,212,76,0.45);padding:7px 18px;background:none;font-family:‘Jost’,sans-serif;font-weight:700;cursor:pointer;transition:all .2s}
-.nav-pdf:hover{background:rgba(247,212,76,0.1)}
+.nav-pdf{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#000;border:1px solid #f7d44c;padding:8px 20px;background:#f7d44c;font-family:‘Jost’,sans-serif;font-weight:700;cursor:pointer;transition:all .2s}
+.nav-pdf:hover{background:rgba(247,212,76,0.85)}
 
 /* HERO */
 #hero{position:relative;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#000}
@@ -201,14 +201,18 @@ canvas{display:none!important}
 <section id="hero">
   <canvas id="c1"></canvas>
   <div class="hero-inner">
-    <div class="hero-badge">Portfolio &nbsp;·&nbsp; 2026</div>
+    <div class="hero-badge">Crafting motion &amp; web experiences</div>
     <span class="hero-j1">Digital Designer</span>
     <span class="hero-j2">Frontend Web Developer</span>
     <div class="hero-line"></div>
     <span class="hero-name">Jade Nguyen</span>
+    <div class="hero-sub">Based in <span>United Kingdom</span> &nbsp;·&nbsp; Available for remote &amp; UK opportunities</div>
   </div>
   <canvas id="sphere" style="position:absolute;right:4%;bottom:8%;width:130px;height:130px;z-index:3;pointer-events:none"></canvas>
-  <div class="scroll-hint">scroll</div>
+  <div class="scroll-hint">
+    <span class="scroll-hint-text">scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
 </section>
 
 <div class="divider"></div>
@@ -388,7 +392,7 @@ var sc=document.getElementById('sphere');
 if(sc){
   var sx=sc.getContext('2d');
   sc.width=130;sc.height=130;
-  var spts=[];var total=180;
+  var spts=[];var total=220;
   for(var i=0;i<total;i++){var phi=Math.acos(-1+(2*i)/total);var theta=Math.sqrt(total*Math.PI)*phi;spts.push({ox:Math.sin(phi)*Math.cos(theta),oy:Math.sin(phi)*Math.sin(theta),oz:Math.cos(phi)});}
   var sAngle=0;
   function drawSphere(){
@@ -396,8 +400,8 @@ if(sc){
     var cx=65,cy=65,r=50;
     var sorted=spts.map(function(p){var x=p.ox*Math.cos(sAngle)-p.oz*Math.sin(sAngle);var z=p.ox*Math.sin(sAngle)+p.oz*Math.cos(sAngle);return{sx:cx+x*r,sy:cy+p.oy*r,z:z};});
     sorted.sort(function(a,b){return a.z-b.z;});
-    sorted.forEach(function(p){var n=(p.z+1)/2;sx.beginPath();sx.arc(p.sx,p.sy,0.8+n*2.2,0,Math.PI*2);sx.fillStyle='rgba(247,212,76,'+( 0.15+n*0.75).toFixed(2)+')';sx.fill();});
-    var g=sx.createRadialGradient(cx,cy,35,cx,cy,65);g.addColorStop(0,'rgba(247,212,76,0)');g.addColorStop(1,'rgba(247,212,76,0.1)');sx.beginPath();sx.arc(cx,cy,62,0,Math.PI*2);sx.fillStyle=g;sx.fill();
+    sorted.forEach(function(p){var n=(p.z+1)/2;sx.beginPath();sx.arc(p.sx,p.sy,0.8+n*2.8,0,Math.PI*2);sx.fillStyle='rgba(247,212,76,'+Math.min(0.95,(0.2+n*0.85)).toFixed(2)+')';sx.fill();});
+    var g=sx.createRadialGradient(cx,cy,30,cx,cy,65);g.addColorStop(0,'rgba(247,212,76,0)');g.addColorStop(1,'rgba(247,212,76,0.12)');sx.beginPath();sx.arc(cx,cy,62,0,Math.PI*2);sx.fillStyle=g;sx.fill();
     requestAnimationFrame(drawSphere);
   }
   drawSphere();
