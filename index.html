@@ -110,6 +110,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .jn-spin { animation:jnSpin 8s linear infinite; transform-origin:center; }
 @keyframes jnSpin { to{transform:rotate(360deg)} }
 
+
+
 /* ═══ ABOUT ═══════════════════════════════════ */
 #about { min-height:100vh; padding:120px 8% 80px; }
 .sec-eyebrow { font-size:10px; letter-spacing:.45em; color:var(--gold); text-transform:uppercase; margin-bottom:16px; display:block; }
@@ -291,6 +293,19 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .info-card li { margin-bottom: 8px; padding-left: 18px; position: relative; list-style: none; }
 .info-card li::before { content: '>'; position: absolute; left: 0; color: #f0c040; font-weight: bold; }
 .highlight { color: #f0c040; font-weight: 700; }
+.summary-line {
+  width: 100%; text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700; color: #f0c040;
+  font-size: 13px; letter-spacing: 0.4em;
+  text-transform: uppercase; padding: 20px 0;
+  text-shadow: 0 0 10px #f0c040;
+  transform: translateX(100%); opacity: 0;
+  animation: slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+@keyframes slideInRight {
+  to { transform: translateX(0); opacity: 1; }
+}
 </style>
 
 </head>
@@ -360,6 +375,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 <section id="about">
   <span class="sec-eyebrow">About</span>
   <div class="ab-top">
+    <div class="summary-line">Strategic Leadership • Sharp Visual Logic • Innovative Execution</div> 
     <div>
       <h2 class="ab-title">Design that <span class="gold">works.</span><br>Code that <span class="gold">ships.</span></h2>
     </div>
