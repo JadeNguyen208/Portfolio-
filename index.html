@@ -92,14 +92,13 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .h-sub span { color:var(--gold-l); font-style:normal; }
 
 /* hero bottom */
-.h-bottom { position:absolute; bottom:0; right:0; width: fit-content; display:flex; gap: 0; padding: 8px 12px; }
+.h-bottom { position:absolute; bottom:0; left:0; right:0; display:flex; justify-content:space-between; align-items:flex-end; z-index:20; }
 .h-status { display:flex; align-items:center; gap:8px; padding:0 52px 22px; opacity:0; animation:fadeIn .8s ease 3.2s forwards; }
 .h-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; box-shadow:0 0 8px #4ade80; animation:blink 2s ease infinite; }
-.h-status-t { font-size:6px; letter-spacing:.3em; color:rgba(74,222,128,.85); text-transform:uppercase; }
-.h-explore { position:absolute; left: 35%; transform:translateX(-50%); bottom:20px; font-size:10px; letter-spacing:.2em; color:var(--bg); background:var(--gold); padding:16px 48px; text-transform:uppercase; opacity:0; animation:fadeIn .8s ease 3.2s forwards; transition:background .3s; }
+.h-status-t { font-size:9px; letter-spacing:.3em; color:rgba(74,222,128,.85); text-transform:uppercase; }
+.h-explore { position:absolute; left: 35%; transform:translateX(-50%); bottom:20px; font-size:13px; letter-spacing:.2em; color:var(--bg); background:var(--gold); padding:16px 48px; text-transform:uppercase; opacity:0; animation:fadeIn .8s ease 3.2s forwards; transition:background .3s; }
 .h-explore:hover { background:var(--gold-l); }
-.h-stats { display:flex; border-top:1px solid rgba(201,168,76,.15); border-left:1px solid rgba(201,168,76,.15); opacity:0; animation:fadeIn .8s ease 3.2s forwards; .h-stats { display:flex; border-top:1px solid ...; border-left:1px solid ...; margin-left:auto; }
-}
+.h-stats { display:flex; border-top:1px solid rgba(201,168,76,.15); border-left:1px solid rgba(201,168,76,.15); opacity:0; animation:fadeIn .8s ease 3.2s forwards; }
 .h-stat { padding:16px 28px; border-right:1px solid rgba(201,168,76,.15); text-align:center; }
 .h-stat:last-child { border-right:none; }
 .h-sn { font-family:‘Cormorant Garamond’,serif; font-size:clamp(36px,4.5vw,56px); font-weight:900; color:var(--gold-l); display:block; line-height:1; text-shadow:0 0 14px rgba(245,196,48,.6); }
@@ -110,8 +109,6 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 #jn-hero-inner { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:‘Cormorant Garamond’,serif; font-size:28px; font-weight:700; color:#ffe066; text-shadow:0 0 8px #fff,0 0 20px var(--gold-l); }
 .jn-spin { animation:jnSpin 8s linear infinite; transform-origin:center; }
 @keyframes jnSpin { to{transform:rotate(360deg)} }
-
-
 
 /* ═══ ABOUT ═══════════════════════════════════ */
 #about { min-height:100vh; padding:120px 8% 80px; }
@@ -294,19 +291,6 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .info-card li { margin-bottom: 8px; padding-left: 18px; position: relative; list-style: none; }
 .info-card li::before { content: '>'; position: absolute; left: 0; color: #f0c040; font-weight: bold; }
 .highlight { color: #f0c040; font-weight: 700; }
-.summary-line {
-  width: 100%; text-align: center;
-  font-family: 'Space Mono', monospace;
-  font-weight: 700; color: #f0c040;
-  font-size: 13px; letter-spacing: 0.4em;
-  text-transform: uppercase; padding: 20px 0;
-  text-shadow: 0 0 10px #f0c040;
-  transform: translateX(100%); opacity: 0;
-  animation: slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
-}
-@keyframes slideInRight {
-  to { transform: translateX(0); opacity: 1; }
-}
 </style>
 
 </head>
@@ -358,23 +342,18 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
       <text font-family="'Space Mono',monospace" font-size="7" fill="rgba(201,168,76,0.95)" letter-spacing="3"><textPath href="#jn-orb" startOffset="0%">DIGITAL · DESIGNER · FRONTEND ·&nbsp;</textPath></text>
     </svg>
   </div>
-<div class="hero-bottom">
-  <div style="width:140px; flex-shrink:0;"></div>
-  <div style="flex:1; display:flex; justify-content:center; align-items:flex-end; padding-bottom:32px;">
-    <a href="#" class="btn-p" style="pointer-events:all; padding:16px 48px; font-size:13px; opacity:0; animation:fadeIn .8s ease 3.2s forwards;"><span>explore my work ↓</span></a>
-  </div>
-  <div class="stats-bar" id="stats-bar" style="margin-right:0; flex-shrink:0;">
-    <div class="st"><span class="st-n" id="n1">0</span><span class="st-l">Years<br>Experience</span></div>
-    <div class="st"><span class="st-n" id="n2">0</span><span class="st-l">People<br>Led</span></div>
-    <div class="st"><span class="st-n" id="n3">0</span><span class="st-l">Projects<br>Led</span></div>
-    <div class="st"><span class="st-n" id="n4">0</span><span class="st-l">Languages<br>Spoken</span></div>
-  </div>
-</div>
 
-<div style="position:fixed; bottom:22px; left:20px; z-index:60; display:flex; align-items:center; gap:8px; opacity:0; animation:fadeIn .8s ease 3.2s forwards;">
-  <div class="sdot"></div>
-  <span class="sdot-t" style="font-size: 1.2rem;">Available for hire</span>
-</div>
+  <div class="h-bottom">
+    <div class="h-status"><div class="h-dot"></div><span class="h-status-t">Available for hire</span></div>
+    <a href="#about" class="h-explore"><span>explore my work ↓</span></a>
+    <div class="h-stats">
+      <div class="h-stat"><span class="h-sn" id="hn1">0</span><span class="h-sl">Years<br>Experience</span></div>
+      <div class="h-stat"><span class="h-sn" id="hn2">0</span><span class="h-sl">People<br>Led</span></div>
+      <div class="h-stat"><span class="h-sn" id="hn3">0</span><span class="h-sl">Projects<br>Led</span></div>
+      <div class="h-stat"><span class="h-sn" id="hn4">0</span><span class="h-sl">Languages<br>Spoken</span></div>
+    </div>
+  </div>
+</section>
 
 <!-- ══════════════════════ ABOUT ══════════════════════ -->
 
@@ -393,9 +372,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
       </div>
       <div id="term-output"></div><span class="term-cursor" id="term-cur"></span>
     </div>
-  </div> 
-  <div class="summary-line">Strategic Leadership • Sharp Visual Logic • Innovative Execution</div>
-
+  </div>
 <section id="experience-grid">
     <div class="info-card">
         <div class="card-border-box"><div class="b-line b-line-1"></div><div class="b-line b-line-2"></div></div>
