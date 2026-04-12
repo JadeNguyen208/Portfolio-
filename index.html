@@ -98,7 +98,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .h-status-t { font-size:6px; letter-spacing:.3em; color:rgba(74,222,128,.85); text-transform:uppercase; }
 .h-explore { position:absolute; left: 35%; transform:translateX(-50%); bottom:20px; font-size:10px; letter-spacing:.2em; color:var(--bg); background:var(--gold); padding:16px 48px; text-transform:uppercase; opacity:0; animation:fadeIn .8s ease 3.2s forwards; transition:background .3s; }
 .h-explore:hover { background:var(--gold-l); }
-.h-stats { display:flex; border-top:1px solid rgba(201,168,76,.15); border-left:1px solid rgba(201,168,76,.15); opacity:0; animation:fadeIn .8s ease 3.2s forwards; }
+.h-stats { display:flex; border-top:1px solid rgba(201,168,76,.15); border-left:1px solid rgba(201,168,76,.15); opacity:0; animation:fadeIn .8s ease 3.2s forwards; .h-stats { display:flex; border-top:1px solid ...; border-left:1px solid ...; margin-left:auto; }
+}
 .h-stat { padding:16px 28px; border-right:1px solid rgba(201,168,76,.15); text-align:center; }
 .h-stat:last-child { border-right:none; }
 .h-sn { font-family:‘Cormorant Garamond’,serif; font-size:clamp(36px,4.5vw,56px); font-weight:900; color:var(--gold-l); display:block; line-height:1; text-shadow:0 0 14px rgba(245,196,48,.6); }
@@ -359,7 +360,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
   </div>
 
   <div class="h-bottom">
-    <div class="h-status"><div class="h-dot"></div><span class="h-status-t" style="font-size: 1.1rem;">Available for hire</span>
+    <div class="h-status"><div class="h-dot"></div><span class="h-status-t" style="font-size: 0.8rem;">Available for hire</span>
     <a href="#about" class="h-explore"><span>explore my work ↓</span></a>
     <div class="h-stats">
       <div class="h-stat"><span class="h-sn" id="hn1">0</span><span class="h-sl">Years<br>Experience</span></div>
