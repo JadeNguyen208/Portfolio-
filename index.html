@@ -20,7 +20,19 @@ html { background:var(---bg); scroll-behavior:smooth; }
 body { background:transparent; color:var(---text); font-family:'Space Mono',monospace; overflow-x:hidden; cursor:none; }
 section { position:relative; z-index:10; }
 a { text-decoration:none; }
-
+.summary-line {
+  width: 100%; text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700; color: #f0c040;
+  font-size: 13px; letter-spacing: 0.4em;
+  text-transform: uppercase; padding: 20px 0;
+  text-shadow: 0 0 10px #f0c040;
+  transform: translateX(100%); opacity: 0;
+  animation: slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+@keyframes slideInRight {
+  to { transform: translateX(0); opacity: 1; }
+  }
 /* ═══ CURSOR ═════════════════════════════════ */
 #cur-dot  { position:fixed; z-index:9999; pointer-events:none; width:7px; height:7px; border-radius:50%; background:var(--gold-l); transform:translate(-50%,-50%); box-shadow:0 0 8px var(--gold-l),0 0 20px rgba(240,192,64,.4); transition:width .3s,height .3s; }
 #cur-ring1{ position:fixed; z-index:9998; pointer-events:none; width:28px; height:28px; border-radius:50%; border:1px solid rgba(201,168,76,.7); transform:translate(-50%,-50%); transition:width .4s,height .4s; }
@@ -372,7 +384,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
       </div>
       <div id="term-output"></div><span class="term-cursor" id="term-cur"></span>
     </div>
-  </div>
+  </div> 
+  <div class="summary-line">Strategic Leadership • Sharp Visual Logic • Innovative Execution</div>
 <section id="experience-grid">
     <div class="info-card">
         <div class="card-border-box"><div class="b-line b-line-1"></div><div class="b-line b-line-2"></div></div>
