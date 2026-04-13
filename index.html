@@ -28,8 +28,11 @@ a { text-decoration:none; }
   text-transform: uppercase; padding: 20px 0;
   text-shadow: 0 0 10px #f0c040;
   transform: translateX(100%); opacity: 0;
+}
+.summary-line.visible {
   animation: slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
 }
+
 @keyframes slideInRight {
   to { transform: translateX(0); opacity: 1; }
   }
@@ -570,6 +573,23 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;DOT.style.le
 document.querySelectorAll('a,button,.ph-cell,.ux-card,.ab-card,.svc-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{DOT.style.width='14px';DOT.style.height='14px';R1.style.width='44px';R1.style.height='44px';});
   el.addEventListener('mouseleave',()=>{DOT.style.width='7px';DOT.style.height='7px';R1.style.width='28px';R1.style.height='28px';});
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const summaryLine = document.querySelector('.summary-line');
+  if (!summaryLine) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        summaryLine.classList.add('visible');
+        observer.unobserve(summaryLine);
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  observer.observe(summaryLine);
 });
 
 /* ══ TRAIL ═══════════════════════════════════ */
