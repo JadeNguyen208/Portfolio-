@@ -647,7 +647,16 @@ function runTerminal(){
   }
   nextLine();
 }
-setTimeout(runTerminal, 800);
+const termObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(runTerminal, 300);
+      termObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0 });
+
+termObserver.observe(document.querySelector('.terminal'));
 
 /* ══ SERVICES HEXAGON ════════════════════════ */
 const hexCv=document.getElementById('hex-canvas'),hexCtx=hexCv.getContext('2d');
