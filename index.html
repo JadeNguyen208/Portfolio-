@@ -98,7 +98,10 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 @keyframes zbL { 0%{right:-140px} 100%{right:100%} }
 @keyframes zbD { 0%{top:-100px} 100%{top:100%} }
 @keyframes zbU { 0%{bottom:-100px} 100%{bottom:100%} }
-
+#zone-border .zb-t::after { animation: zbR 2s linear infinite; }
+#zone-border .zb-b::after { animation: zbL 2s linear infinite; }
+#zone-border .zb-l::after { animation: zbD 2s linear infinite; }
+#zone-border .zb-r::after { animation: zbU 2s linear infinite; }
 .h-frontend { font-family:‘Cormorant Garamond’,serif; font-style:italic; font-weight:300; font-size:clamp(28px,4.5vw,62px); color:var(--text); line-height:1; margin-top:clamp(20px,2.5vw,36px); opacity:0; transform:translateY(18px); transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1); }
 .h-frontend.show { opacity:1; transform:translateY(0); }
 .h-divider { width:48px; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); margin:clamp(14px,2vw,28px) auto; opacity:0; animation:fadeIn .8s ease 2s forwards; }
