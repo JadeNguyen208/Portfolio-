@@ -94,7 +94,6 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .zb-b::after { content:’’; position:absolute; top:0; width:140px; height:100%; background:linear-gradient(90deg,transparent,var(--gold-l),transparent); box-shadow:0 0 12px var(--gold-l); animation:zbL 1.8s linear infinite; }
 .zb-l::after { content:’’; position:absolute; left:0; width:100%; height:100px; background:linear-gradient(180deg,transparent,var(--gold-l),transparent); box-shadow:0 0 12px var(--gold-l); animation:zbD 1.8s linear infinite; }
 .zb-r::after { content:’’; position:absolute; left:0; width:100%; height:100px; background:linear-gradient(180deg,transparent,var(--gold-l),transparent); box-shadow:0 0 12px var(--gold-l); animation:zbU 1.8s linear infinite; }
-
 @keyframes zbR { 0%{left:-140px} 100%{left:100%} }
 @keyframes zbL { 0%{right:-140px} 100%{right:100%} }
 @keyframes zbD { 0%{top:-100px} 100%{top:100%} }
@@ -624,20 +623,30 @@ document.fonts.ready.then(()=>{
 
 /* ══ ABOUT TERMINAL ══════════════════════════ */
 const termLines=[
-{k:'  obsessed',v:'"where motion meets code meets art"'},
-const termLines=[
   {t:'// jade-nguyen · creative developer',c:'rgba(255,255,255,.35)'},
   {t:'const jade = {',c:'rgba(255,255,255,.7)'},
   {k:'  role',v:'"Digital Designer & Frontend Dev"'},
-  {k:'  stack',v:'["HTML/CSS/JS", "After Effects", "Web Audio"]'},
-  {k:'  skills',v:'["Motion Design", "Canvas API", "AI-native"]'},
+  {k:'  skills',v:'["HTML/CSS/JS", "Canvas API", "Web Audio"]'},
   {k:'  available',v:'true'},
-  {k:'  obsessed',v:'"where motion meets code meets art"'},
   {k:'  ship',v:'() => "concept to live product"'},
-  {t:'};',c:'rgba(255,255,255,.7)'},
-  {t:'',c:''},
-  {t:'// currently: open to remote & relocation',c:'rgba(255,20,147,.6)'},
+  {t:'};',c:'rgba(255,255,255,.7)'}
 ];
+let termDone=false;
+function runTerminal(){
+  if(termDone)return; termDone=true;
+  const out=document.getElementById('term-output'),cur=document.getElementById('term-cur');
+  let li=0;
+  function nextLine(){
+    if(li>=termLines.length){cur.style.display='none';return;}
+    const l=termLines[li++];
+    const d=document.createElement('div');
+    if(l.k!=null){d.innerHTML=`<span class="k">${l.k}</span><span style="color:rgba(255,255,255,.4)">: </span><span class="v">${l.v}</span><span style="color:rgba(255,255,255,.4)">,</span>`;}
+    else{d.style.color=l.c||'inherit';d.textContent=l.t;}
+    out.appendChild(d);
+    setTimeout(nextLine,110);
+  }
+  nextLine();
+}
 const termObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
