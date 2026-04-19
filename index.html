@@ -98,6 +98,11 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 @keyframes zbL { 0%{right:-140px} 100%{right:100%} }
 @keyframes zbD { 0%{top:-100px} 100%{top:100%} }
 @keyframes zbU { 0%{bottom:-100px} 100%{bottom:100%} }
+.zb-svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.zb-path-top { fill:none; stroke:#f0c040; stroke-width:1.5px; filter:drop-shadow(0 0 6px var(--gold-l)); stroke-dasharray:60 1000; stroke-dashoffset:0; animation:pathTop 2.5s linear infinite; }
+.zb-path-bot { fill:none; stroke:#f0c040; stroke-width:1.5px; filter:drop-shadow(0 0 6px var(--gold-l)); stroke-dasharray:60 1000; stroke-dashoffset:0; animation:pathBot 2.5s linear infinite; }
+@keyframes pathTop { from{stroke-dashoffset:0} to{stroke-dashoffset:-300} }
+@keyframes pathBot { from{stroke-dashoffset:0} to{stroke-dashoffset:-300} }
 #zone-border .zb-t::after { animation: zbR 2s linear infinite; }
 #zone-border .zb-b::after { animation: zbL 2s linear infinite; }
 #zone-border .zb-l::after { animation: zbD 2s linear infinite; }
@@ -344,6 +349,11 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
       <div class="zb-static"></div>
       <div class="zb-side zb-t"></div><div class="zb-side zb-b"></div>
       <div class="zb-side zb-l"></div><div class="zb-side zb-r"></div>
+      <svg class="zb-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+  <path class="zb-path-top" d="M0,0 L100,0 L100,100"/>
+  <path class="zb-path-bot" d="M100,100 L0,100 L0,0"/>
+</svg>
+
     </div>
   </div>
   <p class="h-frontend">Frontend Web Developer</p>
