@@ -92,8 +92,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .zb-l { left:0; } .zb-r { right:0; }
 .zb-t::after { content:’’; position:absolute; top:0; width:140px; height:100%; background:linear-gradient(90deg,transparent,var(--gold-l),transparent); box-shadow:0 0 12px var(--gold-l); animation:zbR 1.8s linear infinite; }
 .zb-b::after { content:’’; position:absolute; top:0; width:140px; height:100%; background:linear-gradient(90deg,transparent,var(--gold-l),transparent); box-shadow:0 0 12px var(--gold-l); animation:zbL 1.8s linear infinite; }
-.zb-l::after { content:’’; position:absolute; left:0; width:100%; height 50px; background:linear-gradient(180deg,transparent,var(--gold-l),transparent); box-shadow:0 0 12px var(--gold-l); animation:zbD 1.8s linear infinite; }
-.zb-r::after { content:’’; position:absolute; left:0; width:100%; height:50px; background:linear-gradient(180deg,transparent,var(--gold-l),transparent); box-shadow:0 0 12px var(--gold-l); animation:zbU 1.8s linear infinite; }
+.zb-l::after { content:’’; position:absolute; left:0; width:100%; height 50px; background:linear-gradient(180deg,transparent,var(--gold-l),transparent); box-shadow:0 0 6px var(--gold-l); animation:zbD 1.8s linear infinite; }
+.zb-r::after { content:’’; position:absolute; left:0; width:100%; height:50px; background:linear-gradient(180deg,transparent,var(--gold-l),transparent); box-shadow:0 0 6px var(--gold-l); animation:zbU 1.8s linear infinite; }
 @keyframes zbR { 0%{left:-140px} 100%{left:100%} }
 @keyframes zbL { 0%{right:-140px} 100%{right:100%} }
 @keyframes zbD { 0%{top:-100px} 100%{top:100%} }
