@@ -119,7 +119,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 #term-output .k{color:var(--gold-l);}#term-output .v{color:var(--gold);font-style:italic;}
 .term-cursor{display:inline-block;width:8px;height:14px;background:var(--gold-l);animation:blink .8s infinite;vertical-align:text-bottom;margin-left:3px;}
 .ab-cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,168,76,.12);}
-.ab-card{background:rgba(66,55,34,.9);padding:32px 36px;position:relative;overflow:hidden;transition:background .3s;cursor:default;}
+.ab-card{background:rgba(90,79,56,.9);padding:32px 36px;position:relative;overflow:hidden;transition:background .3s;cursor:default;}
 .ab-card:hover{background:rgba(14,14,10,1);}
 .ab-card-label{font-size:10px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:block;}
 .ab-card p,.ab-card li{font-size:12px;color:var(--muted);line-height:1.85;}
@@ -136,7 +136,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 #jn-svc{position:absolute;z-index:60;transform:translate(-50%,-50%);pointer-events:none;}
 .jn-wrap{position:relative;width:110px;height:110px;}
 .jn-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:#ffe066;text-shadow:0 0 10px #fff,0 0 24px var(--gold-l);z-index:2;}
-.svc-card{position:absolute;width:210px;padding:18px 20px 20px;background:rgba(72,60,37,.9);border:1px solid rgba(240,192,64,.3);border-radius:3px;transform:translate(-50%,-50%);z-index:80;opacity:0;overflow:hidden;cursor:default;transition:opacity .7s cubic-bezier(.16,1,.3,1),border-color .3s,background .3s,box-shadow .3s,transform .4s;}
+.svc-card{position:absolute;width:210px;padding:18px 20px 20px;background:rgba(96,84,60,.9);border:1px solid rgba(240,192,64,.3);border-radius:3px;transform:translate(-50%,-50%);z-index:80;opacity:0;overflow:hidden;cursor:default;transition:opacity .7s cubic-bezier(.16,1,.3,1),border-color .3s,background .3s,box-shadow .3s,transform .4s;}
 .svc-card.vis{opacity:1;}
 .svc-card:hover{border-color:rgba(240,192,64,.75);background:rgba(82,66,39,.95);box-shadow:0 0 40px rgba(201,168,76,.12);transform:translate(-50%,-50%) scale(1.04);}
 .sc-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
@@ -260,13 +260,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .cs-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,100px);font-weight:400;line-height:1.0;color:#fff;max-width:800px;text-shadow:0 2px 40px rgba(0,0,0,.8);}
 .cs-title em{color:var(--gold-l);font-style:italic;}
 .cs-tagline{font-size:14px;color:rgba(240,235,224,.75);line-height:1.85;max-width:560px;margin-top:24px;border-left:3px solid var(--gold);padding-left:24px;background:rgba(240,192,64,.03);}
-.cs-meta{display:flex;flex-wrap:wrap;gap:0;border:1px solid rgba(130,110,78,0.42);margin-bottom:80px;background:rgba(64,53,33,0.92);}
+.cs-meta{display:flex;flex-wrap:wrap;gap:0;border:1px solid rgba(130,110,78,0.42);margin-bottom:80px;background:rgba(86,73,49,0.92);}
 .cs-meta-item{padding:24px 36px;border-right:1px solid rgba(90,90,95,0.25);flex:1;min-width:160px;}
 .cs-meta-item:last-child{border-right:none;}
 .cs-meta-label{font-size:9px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:block;}
 .cs-meta-val{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;line-height:1.4;font-weight:400;}
 .cs-body{display:flex;flex-direction:column;gap:72px;}
-.cs-block{display:grid;grid-template-columns:1fr;gap:16px;opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);background:rgba(62,51,31,0.92);border:1px solid rgba(140,118,84,0.45);padding:32px 44px 36px;}
+.cs-block{display:grid;grid-template-columns:1fr;gap:16px;opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);background:rgba(84,71,47,0.92);border:1px solid rgba(150,128,92,0.45);padding:32px 44px 36px;}
 .cs-block.vis{opacity:1;transform:translateY(0);}
 .cs-block-label{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;letter-spacing:.2em;color:var(--gold-l);text-shadow:0 0 12px rgba(240,192,64,.4);text-transform:uppercase;padding-top:6px;position:relative;}
 .cs-block-label::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,var(--gold-l),transparent);}
@@ -359,7 +359,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .ct-lbl{font-size:10px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;opacity:.8;}
 .ct-val{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#fff;line-height:1.4;}
 #experience-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding:0 10% 40px 8%;z-index:10;position:relative;}
-.info-card{background:rgba(68,56,35,.9);padding:40px;border-radius:16px;border:1px solid rgba(240,192,64,.45);position:relative;overflow:hidden;transition:all 0.6s cubic-bezier(0.23,1,0.32,1);transform-style:preserve-3d;}
+.info-card{background:rgba(92,81,58,.9);padding:40px;border-radius:16px;border:1px solid rgba(240,192,64,.45);position:relative;overflow:hidden;transition:all 0.6s cubic-bezier(0.23,1,0.32,1);transform-style:preserve-3d;}
 .card-border-box{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 0.3s;z-index:1;}
 .info-card:hover .card-border-box{opacity:1;}
 .b-line{position:absolute;background:#f0c040;box-shadow:0 0 15px #f0c040;}
@@ -736,8 +736,8 @@ new IntersectionObserver(es=>{if(es[0].isIntersecting)runContact();},{threshold:
       for(let i=0;i<barCount;i++){
         const b=bars[i],u=i/(barCount-1);
         // three travelling sine layers → the waveform pattern flows left, like audio playing
-        const flow=0.55*Math.sin(u*7.0 - t*5.4) + 0.30*Math.sin(u*15.0 + t*3.9) + 0.18*Math.sin(u*26.0 - t*8.6);
-        const flick=0.80 + 0.20*Math.sin(t*18 + b.flick); // fast shimmer per bar
+        const flow=0.55*Math.sin(u*7.0 - t*3.2) + 0.30*Math.sin(u*15.0 + t*2.3) + 0.18*Math.sin(u*26.0 - t*5.0);
+        const flick=0.80 + 0.20*Math.sin(t*11 + b.flick); // shimmer per bar
         const h=Math.max(minH,(0.14 + Math.abs(flow)*0.86) * maxH * flick);
         const g=ctx.createLinearGradient(0,midY-h,0,midY+h);
         g.addColorStop(0,'rgba(140,88,5,.15)');
