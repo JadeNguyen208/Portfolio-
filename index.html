@@ -105,6 +105,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 #jn-hero-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#ffe066;text-shadow:0 0 8px #fff,0 0 20px var(--gold-l);}
 .jn-spin{animation:jnSpin 8s linear infinite;transform-origin:center;}
 @keyframes jnSpin{to{transform:rotate(360deg)}}
+#jn-fixed{position:fixed;right:24px;bottom:24px;width:54px;height:54px;z-index:450;pointer-events:none;opacity:0;animation:fadeIn 1s ease 1.6s forwards;filter:drop-shadow(0 2px 10px rgba(0,0,0,.5));}
+#jn-fixed .jnf-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:#ffe066;text-shadow:0 0 5px #fff,0 0 13px var(--gold-l);}
+@media(max-width:600px){#jn-fixed{width:44px;height:44px;right:14px;bottom:14px;}#jn-fixed .jnf-inner{font-size:14px;}}
+@media(prefers-reduced-motion:reduce){#jn-fixed .jn-spin{animation:none;}#jn-fixed{opacity:1;animation:none;}}
 </style>
 <style>
 #about{min-height:100vh;padding:120px 8% 80px;}
@@ -401,6 +405,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 <div id="cur-dot"></div><div id="cur-ring1"></div><div id="cur-ring2"></div>
 <canvas id="bg-canvas"></canvas>
 <div id="grain"></div>
+<div id="jn-fixed" aria-hidden="true">
+  <div class="jnf-inner">JN</div>
+  <svg class="jn-spin" viewBox="0 0 72 72" width="54" height="54">
+    <defs><path id="jnf-orb" d="M36,7 a29,29 0 1,1 -0.01,0 z"/><filter id="jnfg"><feGaussianBlur stdDeviation="1.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <circle cx="36" cy="36" r="29" fill="none" stroke="rgba(240,192,64,0.85)" stroke-width="1.4"/>
+    <circle r="3" fill="#f0c040" filter="url(#jnfg)"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#jnf-orb"/></animateMotion></circle>
+    <text font-family="'Space Mono',monospace" font-size="6.6" fill="rgba(201,168,76,0.9)" letter-spacing="2.6"><textPath href="#jnf-orb" startOffset="0%">DIGITAL · DESIGNER · FRONTEND ·&nbsp;</textPath></text>
+  </svg>
+</div>
 <nav>
   <div class="nav-logo">Jade<br>Nguyen</div>
   <ul class="nav-links">
@@ -431,15 +444,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
   <div class="h-divider"></div>
   <p class="h-name">Jade Nguyen</p>
   <p class="h-sub">Available for <span>remote working</span></p>
-  <div id="jn-hero">
-    <div id="jn-hero-inner">JN</div>
-    <svg class="jn-spin" viewBox="0 0 72 72" width="88" height="88">
-      <defs><path id="jn-orb" d="M36,6 a30,30 0 1,1 -0.01,0 z"/><filter id="jng"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-      <circle cx="36" cy="36" r="30" fill="none" stroke="rgba(240,192,64,0.9)" stroke-width="1.5"/>
-      <circle r="3.5" fill="#f0c040" filter="url(#jng)"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#jn-orb"/></animateMotion></circle>
-      <text font-family="'Space Mono',monospace" font-size="7" fill="rgba(201,168,76,0.95)" letter-spacing="3"><textPath href="#jn-orb" startOffset="0%">DIGITAL · DESIGNER · FRONTEND ·&nbsp;</textPath></text>
-    </svg>
-  </div>
   <div class="h-bottom">
     <div class="h-status"><div class="h-dot"></div><span class="h-status-t">Available for hire</span></div>
     <a href="#about" class="h-explore"><span>explore my work ↓</span></a>
