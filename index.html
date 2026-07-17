@@ -735,8 +735,8 @@ new IntersectionObserver(es=>{if(es[0].isIntersecting)runContact();},{threshold:
       for(let i=0;i<barCount;i++){
         const b=bars[i],u=i/(barCount-1);
         // three travelling sine layers → the waveform pattern flows left, like audio playing
-        const flow=0.55*Math.sin(u*7.0 - t*2.6) + 0.30*Math.sin(u*15.0 + t*1.9) + 0.18*Math.sin(u*26.0 - t*4.2);
-        const flick=0.80 + 0.20*Math.sin(t*10 + b.flick); // fast shimmer per bar
+        const flow=0.55*Math.sin(u*7.0 - t*5.4) + 0.30*Math.sin(u*15.0 + t*3.9) + 0.18*Math.sin(u*26.0 - t*8.6);
+        const flick=0.80 + 0.20*Math.sin(t*18 + b.flick); // fast shimmer per bar
         const h=Math.max(minH,(0.14 + Math.abs(flow)*0.86) * maxH * flick);
         const g=ctx.createLinearGradient(0,midY-h,0,midY+h);
         g.addColorStop(0,'rgba(140,88,5,.15)');
