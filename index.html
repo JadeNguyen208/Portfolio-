@@ -546,7 +546,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 </section>
 <section class="cs-section" id="case-ssm">
   <span class="cs-num">01</span>
-  <div class="cs-hero-visual"><canvas id="cs01-cv"></canvas><span class="cs-visual-label">9 SOUNDSCAPES · REAL-TIME AUDIO ENGINE</span></div>
+  <div class="cs-hero-visual cs-hero-visual-img"><img src="sleepsoundmixer-hero.jpg" alt="SleepSoundMixer — real product screenshot" loading="lazy"><span class="cs-visual-label">REAL PRODUCT · LIVE ON VERCEL</span></div>
   <div class="cs-header"><span class="cs-eyebrow">Case Study 01 · Live Product</span><h2 class="cs-title">Designing for <em>Drowsy Users</em></h2><p class="cs-tagline">A live product, not a concept. SleepSoundMixer shipped on Product Hunt, monetised, built entirely solo.</p></div>
   <div class="cs-meta"><div class="cs-meta-item"><span class="cs-meta-label">Role</span><span class="cs-meta-val">Solo Designer &amp; Developer</span></div><div class="cs-meta-item"><span class="cs-meta-label">Stack</span><span class="cs-meta-val">Vanilla JS · Web Audio API · Canvas</span></div><div class="cs-meta-item"><span class="cs-meta-label">Status</span><span class="cs-meta-val">Live · Monetised</span></div><div class="cs-meta-item"><span class="cs-meta-label">Scope</span><span class="cs-meta-val">UX · Dev · Launch · Marketing</span></div></div>
   <div class="cs-body">
@@ -568,7 +568,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 </section>
 <section class="cs-section" id="case-fruit">
   <span class="cs-num">02</span>
-  <div class="cs-hero-visual"><canvas id="cs02-cv"></canvas><span class="cs-visual-label">HOA QUẢ SƠN FARM · LIVE E-COMMERCE · KHÁNH HÒA</span></div>
+  <div class="cs-hero-visual cs-hero-visual-img"><img src="hoaquason-hero.jpg" alt="Hoa Quả Sơn Farm — real product screenshot" loading="lazy"><span class="cs-visual-label">REAL PRODUCT · LIVE ON FIREBASE</span></div>
   <div class="cs-header"><span class="cs-eyebrow">Case Study 02 · Live Product</span><h2 class="cs-title">When the Medium <em>Is the Message</em></h2><p class="cs-tagline">A live e-commerce experience for a premium Vietnamese fruit farm — real farm photography for trust, hand-drawn Canvas illustration for product craft.</p>
   <p class="feat-url" style="margin-top:18px;margin-bottom:0;"><a href="https://hoaquason-khanhhoa.web.app/" target="_blank" rel="noopener" class="feat-link">hoaquason-khanhhoa.web.app ↗</a></p>
   </div>
@@ -732,100 +732,6 @@ new IntersectionObserver(es=>{if(es[0].isIntersecting)runContact();},{threshold:
 (function(){const ids=['about','services','projects-grid','project','skills','contact'];const links=document.querySelectorAll('.nav-links a');const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));});},{threshold:0.3,rootMargin:'-72px 0px -50% 0px'});ids.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el);});})();
 </script>
 <script>
-// ── CS01: audio wave hero visual ──
-(function(){
-  const cv=document.getElementById('cs01-cv');if(!cv)return;
-  let started=false;
-  new IntersectionObserver(e=>{
-    if(!e[0].isIntersecting||started)return;started=true;
-    cv.width=cv.parentElement.offsetWidth||800;cv.height=220;
-    const ctx=cv.getContext('2d');
-    // dense, mirrored bars around a centre line — reads as a real audio waveform, not a bar chart
-    const marginX=22,barGap=2,barCount=Math.max(48,Math.floor((cv.width-marginX*2)/6));
-    const usableW=cv.width-marginX*2,barW=Math.max(2.4,usableW/barCount-barGap);
-    const bars=[];for(let i=0;i<barCount;i++){bars.push({x:marginX+i*(usableW/barCount)+barW/2,flick:Math.random()*Math.PI*2});}
-    const maxH=cv.height*.44,minH=4,midY=cv.height/2;
-    const rr=ctx.roundRect?function(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill();}:function(x,y,w,h){ctx.fillRect(x,y,w,h);};
-    (function draw(){
-      ctx.clearRect(0,0,cv.width,cv.height);const t=Date.now()/1000;
-      for(let i=0;i<barCount;i++){
-        const b=bars[i],u=i/(barCount-1);
-        // three travelling sine layers → the waveform pattern flows left, like audio playing
-        const flow=0.55*Math.sin(u*7.0 - t*3.2) + 0.30*Math.sin(u*15.0 + t*2.3) + 0.18*Math.sin(u*26.0 - t*5.0);
-        const flick=0.80 + 0.20*Math.sin(t*11 + b.flick); // shimmer per bar
-        const h=Math.max(minH,(0.14 + Math.abs(flow)*0.86) * maxH * flick);
-        const g=ctx.createLinearGradient(0,midY-h,0,midY+h);
-        g.addColorStop(0,'rgba(140,88,5,.15)');
-        g.addColorStop(.26,'rgba(240,175,15,.95)');
-        g.addColorStop(.5,'rgba(255,238,120,1)');
-        g.addColorStop(.74,'rgba(240,175,15,.95)');
-        g.addColorStop(1,'rgba(140,88,5,.15)');
-        ctx.shadowColor='rgba(255,224,70,.55)';ctx.shadowBlur=8;
-        ctx.fillStyle=g;
-        rr(b.x-barW/2,midY-h,barW,h*2,barW/2);
-      }
-      ctx.shadowBlur=0;requestAnimationFrame(draw);
-    })();
-  },{threshold:.1}).observe(cv);
-})();
-
-// ── CS02: hand-drawn Canvas fruits ──
-(function(){
-  const cv=document.getElementById('cs02-cv');if(!cv)return;
-  let started=false;
-  new IntersectionObserver(e=>{
-    if(!e[0].isIntersecting||started)return;started=true;
-    cv.width=cv.parentElement.offsetWidth||800;cv.height=220;
-    const ctx=cv.getContext('2d');
-    function lf(x,y,w,h,ang,col){ctx.save();ctx.translate(x,y);ctx.rotate(ang);ctx.fillStyle=col;ctx.beginPath();ctx.moveTo(0,0);ctx.bezierCurveTo(w*.4,-h,w,-h*.9,w,0);ctx.bezierCurveTo(w,h*.8,w*.4,h*.7,0,0);ctx.fill();ctx.strokeStyle='rgba(0,55,0,.3)';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(w*.85,0);ctx.stroke();ctx.restore();}
-    function st(x,y,dx,dy){ctx.strokeStyle='#3a2000';ctx.lineWidth=1.8;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x,y);ctx.quadraticCurveTo(x+dx*.5,y+dy*.5,x+dx,y+dy);ctx.stroke();}
-    function sp(x,y,rx,ry,a){ctx.fillStyle='rgba(255,255,255,.3)';ctx.beginPath();ctx.ellipse(x,y,rx,ry,a,0,Math.PI*2);ctx.fill();}
-    function drawOrange(x,y){
-      const r=36,g=ctx.createRadialGradient(x-r*.28,y-r*.32,1,x,y,r);
-      g.addColorStop(0,'#ffd568');g.addColorStop(.45,'#ff8030');g.addColorStop(1,'#bf3e00');
-      ctx.shadowColor='rgba(255,130,10,.75)';ctx.shadowBlur=26;
-      ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();
-      ctx.shadowBlur=0;
-      sp(x-r*.2,y-r*.28,r*.17,r*.09,-0.5);st(x,y-r,4,-14);lf(x+3,y-r-9,20,7,-0.28,'#1e6a0a');
-    }
-    function drawCherry(x,y){
-      const r=18;
-      ctx.strokeStyle='#3a6010';ctx.lineWidth=2;ctx.lineCap='round';
-      ctx.beginPath();ctx.moveTo(x-6,y-r);ctx.quadraticCurveTo(x-14,y-r-22,x-10,y-r-32);ctx.stroke();
-      ctx.beginPath();ctx.moveTo(x+6,y-r);ctx.quadraticCurveTo(x+4,y-r-18,x-10,y-r-32);ctx.stroke();
-      ctx.fillStyle='#2a7010';ctx.beginPath();ctx.ellipse(x-2,y-r-26,7,3.5,-0.5,0,Math.PI*2);ctx.fill();
-      const g1=ctx.createRadialGradient(x-r*.35-6,y-r*.35,1,x-6,y,r);
-      g1.addColorStop(0,'#ff6060');g1.addColorStop(.45,'#d81010');g1.addColorStop(1,'#7a0000');
-      ctx.shadowColor='rgba(220,20,20,.7)';ctx.shadowBlur=18;
-      ctx.fillStyle=g1;ctx.beginPath();ctx.arc(x-6,y,r,0,Math.PI*2);ctx.fill();
-      sp(x-r*.4-6,y-r*.38,r*.2,r*.11,-0.5);
-      const g2=ctx.createRadialGradient(x-r*.35+6,y-r*.35,1,x+6,y,r);
-      g2.addColorStop(0,'#ff6060');g2.addColorStop(.45,'#d81010');g2.addColorStop(1,'#7a0000');
-      ctx.fillStyle=g2;ctx.beginPath();ctx.arc(x+6,y,r,0,Math.PI*2);ctx.fill();
-      ctx.shadowBlur=0;
-      sp(x-r*.4+6,y-r*.38,r*.2,r*.11,-0.5);
-    }
-    function drawStarApple(x,y){const r=32,g=ctx.createRadialGradient(x-r*.26,y-r*.3,1,x,y,r);g.addColorStop(0,'#faf268');g.addColorStop(.38,'#d4b818');g.addColorStop(1,'#7a5a00');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(80,52,0,.5)';for(let i=0;i<5;i++){const a=i/5*Math.PI*2-Math.PI/2;ctx.beginPath();ctx.ellipse(x+Math.cos(a)*r*.14,y+r-4+Math.sin(a)*r*.1,3.5,5.5,a,0,Math.PI*2);ctx.fill();}sp(x-r*.2,y-r*.28,r*.17,r*.10,-0.5);st(x,y-r+1,5,-17);lf(x+4,y-r-11,24,9,-0.22,'#165410');lf(x-3,y-r-8,16,6,0.55,'#1e7018');}
-    function drawPomelo(x,y){
-      const r=34;
-      const g=ctx.createRadialGradient(x-r*.28,y-r*.32,2,x,y,r);
-      g.addColorStop(0,'#f8ffa0');g.addColorStop(.3,'#c8e040');g.addColorStop(.65,'#88b800');g.addColorStop(1,'#3a5a00');
-      ctx.shadowColor='rgba(160,210,20,.6)';ctx.shadowBlur=22;
-      ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();
-      ctx.shadowBlur=0;
-      ctx.strokeStyle='rgba(80,120,0,.25)';ctx.lineWidth=1;
-      for(let i=0;i<5;i++){const a=i/5*Math.PI*2;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+Math.cos(a)*r*.9,y+Math.sin(a)*r*.9);ctx.stroke();}
-      sp(x-r*.22,y-r*.3,r*.16,r*.09,-0.5);
-      ctx.strokeStyle='#3a5000';ctx.lineWidth=2.5;ctx.lineCap='round';
-      ctx.beginPath();ctx.moveTo(x,y-r);ctx.lineTo(x+2,y-r-10);ctx.stroke();
-      ctx.fillStyle='#2a6008';ctx.beginPath();ctx.ellipse(x+4,y-r-12,5,2.5,-0.3,0,Math.PI*2);ctx.fill();
-    }
-    const fns=[drawOrange,drawCherry,drawStarApple,drawPomelo];
-    const pos=[{x:.18,y:.50},{x:.38,y:.44},{x:.58,y:.52},{x:.80,y:.46}];
-    const ph=[0,1.3,2.2,0.7];
-    (function draw(){const t=Date.now()/1000;ctx.clearRect(0,0,cv.width,cv.height);fns.forEach((fn,i)=>{fn(pos[i].x*cv.width,pos[i].y*cv.height+Math.sin(t*.8+ph[i])*9);});requestAnimationFrame(draw);})();
-  },{threshold:.1}).observe(cv);
-})();
 </script>
 <script>
 // ── CS02: Vietnam 34-province map (full country, compact frame) ──
