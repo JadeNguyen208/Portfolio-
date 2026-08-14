@@ -407,15 +407,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .dragon-stage{position:relative;width:100%;max-width:660px;margin:24px auto 0;border:1px solid rgba(240,192,64,.2);border-radius:8px;overflow:hidden;background:#070d0a;isolation:isolate;}
 .dragon-stage-bg{width:100%;height:auto;display:block;}
 .dragon-stage::after{content:'';position:absolute;inset:0;z-index:2;background:radial-gradient(120% 85% at 50% 55%,transparent 58%,rgba(4,8,6,.5));pointer-events:none;}
-.dragon-stage-slot{position:absolute;left:50%;top:60%;width:58%;z-index:1;transform:translate(-50%,-50%);}
+.dragon-stage-slot{position:absolute;left:50%;top:56%;width:44%;z-index:1;transform:translate(-50%,-50%);}
 .dragon-stage-slot img{width:100%;height:auto;display:block;filter:drop-shadow(0 14px 18px rgba(4,20,14,.5));}
 /* Live waterfalls — same 3-layer pure-CSS technique shipped in the game's habitat */
 .dr-water{position:absolute;inset:0;z-index:1;pointer-events:none;}
-.dr-stream{position:absolute;overflow:hidden;opacity:.5;mix-blend-mode:screen;
+.dr-stream{position:absolute;overflow:hidden;opacity:.85;mix-blend-mode:screen;
   background:linear-gradient(91deg,transparent 0 9%,rgba(222,255,253,.34) 18%,transparent 34%,rgba(239,255,255,.46) 58%,transparent 73%,rgba(178,242,238,.24) 88%,transparent 100%),
              repeating-linear-gradient(180deg,transparent 0 13%,rgba(225,255,255,.17) 17%,rgba(234,255,253,.55) 21%,rgba(112,224,218,.22) 25%,transparent 32% 48%);
   background-size:100% 104%,100% 74%;
-  filter:blur(.16px) saturate(1.18) brightness(1.16) drop-shadow(0 0 3px rgba(203,255,251,.38));
+  filter:blur(.16px) saturate(1.25) brightness(1.42) drop-shadow(0 0 4px rgba(203,255,251,.5));
   will-change:background-position,opacity;animation:waterfallFlow 1.85s linear infinite;}
 .dr-stream::after{content:'';position:absolute;inset:-24% 32%;opacity:.36;
   background:repeating-linear-gradient(180deg,transparent 0%,rgba(244,255,255,.4) 14%,transparent 31%);
@@ -425,15 +425,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
              radial-gradient(ellipse at 72% 52%,rgba(211,255,251,.48) 0 6%,transparent 12%),
              radial-gradient(ellipse at 41% 86%,rgba(245,255,255,.55) 0 5%,transparent 11%);
   background-size:100% 39%;filter:blur(.5px);will-change:background-position,opacity;animation:waterfallDroplets 1.45s linear infinite;}
-.dr-ul{left:16.2%;top:17.5%;width:3.2%;height:12.5%;clip-path:polygon(30% 0,100% 8%,78% 100%,4% 92%);}
-.dr-ur{left:90.6%;top:17.8%;width:3.2%;height:13.5%;clip-path:polygon(24% 0,96% 7%,72% 100%,2% 90%);animation-duration:2.15s;animation-delay:-.7s;}
-.dr-ll{left:9.2%;top:86.5%;width:3.6%;height:11%;opacity:.46;clip-path:polygon(26% 0,98% 8%,74% 100%,0 91%);animation-duration:2.05s;animation-delay:-1.2s;}
-.dr-lr{left:83.8%;top:87.5%;width:3.6%;height:11%;opacity:.46;clip-path:polygon(22% 0,94% 6%,70% 100%,0 88%);animation-duration:1.95s;animation-delay:-.35s;}
-@keyframes waterfallFlow{0%{background-position:0 -4%,0 -74%;opacity:.4}46%{opacity:.62}100%{background-position:0 4%,0 74%;opacity:.42}}
+.dr-ul{left:17.2%;top:7.5%;width:4.6%;height:13%;clip-path:polygon(30% 0,100% 8%,78% 100%,4% 92%);}
+.dr-ur{left:81.5%;top:7.5%;width:4.6%;height:14%;clip-path:polygon(24% 0,96% 7%,72% 100%,2% 90%);animation-duration:2.15s;animation-delay:-.7s;}
+.dr-ll{left:16.5%;top:73.5%;width:5%;height:15%;opacity:.75;clip-path:polygon(26% 0,98% 8%,74% 100%,0 91%);animation-duration:2.05s;animation-delay:-1.2s;}
+.dr-lr{left:78.5%;top:73.5%;width:5%;height:14%;opacity:.75;clip-path:polygon(22% 0,94% 6%,70% 100%,0 88%);animation-duration:1.95s;animation-delay:-.35s;}
+@keyframes waterfallFlow{0%{background-position:0 -4%,0 -74%;opacity:.6}46%{opacity:.92}100%{background-position:0 4%,0 74%;opacity:.63}}
 @keyframes waterfallFilament{from{background-position:0 -36%}to{background-position:0 36%}}
-@keyframes waterfallDroplets{0%{background-position:0 -39%;opacity:.24}36%{opacity:.52}100%{background-position:0 39%;opacity:.26}}
+@keyframes waterfallDroplets{0%{background-position:0 -39%;opacity:.4}36%{opacity:.78}100%{background-position:0 39%;opacity:.42}}
 @media(prefers-reduced-motion:reduce){.dr-stream,.dr-stream::before,.dr-stream::after{animation:none!important;}}
-@media(max-width:560px){.dragon-stage-slot{width:66%;}}
+@media(max-width:560px){.dragon-stage-slot{width:52%;}}
 /* Sleeping-dragon breath — the exact curve shipped in the game build */
 .dragon-breath{transform-origin:50% 82%;will-change:transform,filter;animation:dragonSleepBreath 5.2s ease-in-out infinite;}
 @keyframes dragonSleepBreath{
