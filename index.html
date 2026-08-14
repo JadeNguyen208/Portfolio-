@@ -407,7 +407,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .dragon-stage{position:relative;width:100%;max-width:660px;margin:24px auto 0;border:1px solid rgba(240,192,64,.2);border-radius:8px;overflow:hidden;background:#070d0a;isolation:isolate;}
 .dragon-stage-bg{width:100%;height:auto;display:block;}
 .dragon-stage::after{content:'';position:absolute;inset:0;z-index:2;background:radial-gradient(120% 85% at 50% 55%,transparent 58%,rgba(4,8,6,.5));pointer-events:none;}
-.dragon-stage-slot{position:absolute;left:50%;top:57%;width:58%;z-index:1;transform:translate(-50%,-50%);}
+.dragon-stage-slot{position:absolute;left:52.5%;top:58.5%;width:58%;z-index:1;transform:translate(-50%,-50%);}
 .dragon-stage-slot img{width:100%;height:auto;display:block;filter:drop-shadow(0 14px 18px rgba(4,20,14,.5));}
 /* Live waterfalls — same 3-layer pure-CSS technique shipped in the game's habitat */
 .dr-water{position:absolute;inset:0;z-index:1;pointer-events:none;}
@@ -425,10 +425,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
              radial-gradient(ellipse at 72% 52%,rgba(211,255,251,.48) 0 6%,transparent 12%),
              radial-gradient(ellipse at 41% 86%,rgba(245,255,255,.55) 0 5%,transparent 11%);
   background-size:100% 39%;filter:blur(.5px);will-change:background-position,opacity;animation:waterfallDroplets 1.45s linear infinite;}
-.dr-ul{left:17.2%;top:7.5%;width:4.6%;height:13%;clip-path:polygon(30% 0,100% 8%,78% 100%,4% 92%);}
-.dr-ur{left:81.5%;top:7.5%;width:4.6%;height:14%;clip-path:polygon(24% 0,96% 7%,72% 100%,2% 90%);animation-duration:2.15s;animation-delay:-.7s;}
-.dr-ll{left:16.5%;top:73.5%;width:5%;height:15%;opacity:.75;clip-path:polygon(26% 0,98% 8%,74% 100%,0 91%);animation-duration:2.05s;animation-delay:-1.2s;}
-.dr-lr{left:78.5%;top:73.5%;width:5%;height:14%;opacity:.75;clip-path:polygon(22% 0,94% 6%,70% 100%,0 88%);animation-duration:1.95s;animation-delay:-.35s;}
+.dr-ul{left:9.5%;top:14.5%;width:5%;height:13.5%;clip-path:polygon(30% 0,100% 8%,78% 100%,4% 92%);}
+.dr-ur{left:80%;top:14.5%;width:5%;height:15%;clip-path:polygon(24% 0,96% 7%,72% 100%,2% 90%);animation-duration:2.15s;animation-delay:-.7s;}
+.dr-ll{left:14.5%;top:78%;width:5.5%;height:12.5%;opacity:.75;clip-path:polygon(26% 0,98% 8%,74% 100%,0 91%);animation-duration:2.05s;animation-delay:-1.2s;}
+.dr-lr{left:84.5%;top:75.5%;width:5.5%;height:13%;opacity:.75;clip-path:polygon(22% 0,94% 6%,70% 100%,0 88%);animation-duration:1.95s;animation-delay:-.35s;}
 @keyframes waterfallFlow{0%{background-position:0 -4%,0 -74%;opacity:.6}46%{opacity:.92}100%{background-position:0 4%,0 74%;opacity:.63}}
 @keyframes waterfallFilament{from{background-position:0 -36%}to{background-position:0 36%}}
 @keyframes waterfallDroplets{0%{background-position:0 -39%;opacity:.4}36%{opacity:.78}100%{background-position:0 39%;opacity:.42}}
