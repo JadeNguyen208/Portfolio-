@@ -763,7 +763,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
       </div>
       <div class="cs-insight"><p>A bestiary only feels real when every creature looks like it came from the same world — same light, same camera, same soul.</p></div></div></div>
     <div class="cs-block"><div class="cs-block-label">02 — Bringing It to Life</div><div class="cs-block-content"><h3>A Spirit Bird That Actually Walks</h3><p>The flagship isn't just a picture. Below, the <strong>Jade-Plume Spirit Phoenix</strong> runs live: a hand-written engine wanders it between waypoints, flips its facing, and cycles a <strong>4-frame sprite sheet</strong> for the gait — one <code>requestAnimationFrame</code> loop, GPU-moved with <code>translate3d</code>. Behind it an <strong>azure dragon sleeps</strong> on its own 5.2s breath — two creatures, two clocks, so nothing looks choreographed.</p>
-      <div class="habitat" id="nvlc-habitat"><div class="habitat-scene"><video src="habitat-landscape.mp4" poster="phoenix-habitat.webp" autoplay muted loop playsinline preload="metadata" aria-label="Spirit phoenix sanctuary — living landscape with drifting mist"></video></div><span class="habitat-status" id="nvlc-bird-status">Roaming…</span><div class="habitat-bird-slot" id="nvlc-bird-slot"><div class="habitat-bird" id="nvlc-bird"><div class="habitat-bird-sprite" id="nvlc-bird-sprite"></div></div></div><span class="cs-visual-label">LIVE SPRITE · WALKING PHOENIX + SLEEPING DRAGON · HAND-CODED</span></div>
+      <div class="habitat" id="nvlc-habitat"><div class="habitat-scene"><video data-lazy-src="habitat-landscape.mp4" poster="phoenix-habitat.webp" muted loop playsinline preload="none" aria-label="Spirit phoenix sanctuary — living landscape with drifting mist"></video></div><span class="habitat-status" id="nvlc-bird-status">Roaming…</span><div class="habitat-bird-slot" id="nvlc-bird-slot"><div class="habitat-bird" id="nvlc-bird"><div class="habitat-bird-sprite" id="nvlc-bird-sprite"></div></div></div><span class="cs-visual-label">LIVE SPRITE · WALKING PHOENIX + SLEEPING DRAGON · HAND-CODED</span></div>
       <div class="cs-craft">
         <div class="cs-craft-item"><span class="cs-craft-k">Wander AI</span><div class="cs-craft-v">Picks random waypoints, walks there, pauses, then rests or roams again — so it never feels scripted.</div></div>
         <div class="cs-craft-item"><span class="cs-craft-k">Sprite Sheet</span><div class="cs-craft-v">One <code>560×400</code> strip of 4 poses; <code>background-position</code> swaps frames for a walking gait.</div></div>
@@ -771,7 +771,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
       </div></div></div>
     <div class="cs-block"><div class="cs-block-label">03 — A Dragon That Breathes</div><div class="cs-block-content"><h3>A Dragon Asleep in Its Sanctuary</h3><p>Not every creature needs to walk to feel alive. The <strong>azure spirit dragon</strong> sleeps coiled on its crystal lake, and the illusion rests on one detail: <strong>a body that doesn't scale uniformly.</strong> Breath expands a torso more vertically than horizontally — get that ratio wrong and it reads as a zoom, not a creature.</p>
       <div class="dragon-stage">
-        <video class="dragon-stage-bg" src="sanctuary-waterfalls.mp4" poster="dragon-sanctuary.webp" autoplay muted loop playsinline preload="metadata" aria-label="Azure dragon sanctuary — waterfalls flowing and mist drifting over the crystal lake"></video>
+        <video class="dragon-stage-bg" data-lazy-src="sanctuary-waterfalls.mp4" poster="dragon-sanctuary.webp" muted loop playsinline preload="none" aria-label="Azure dragon sanctuary — waterfalls flowing and mist drifting over the crystal lake"></video>
         
         <span class="dragon-stage-slot"><img class="dragon-breath" src="dragon-sleep.webp" alt="Azure spirit dragon asleep, coiled on the sanctuary lake, breathing" loading="lazy"></span>
         <span class="cs-visual-label">AZURE DRAGON · 5.2S SLEEP-BREATH CYCLE · SHIPPED CSS</span>
@@ -1171,6 +1171,30 @@ document.querySelectorAll('.province').forEach(el => {
   el.addEventListener('mouseleave', () => tip.style.display = 'none');
 });
 <\/script>
+<script>
+// Habitat footage is far down the page: only fetch and play it once the panel is near the viewport.
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('video[data-lazy-src]'));
+  if(!vids.length)return;
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function load(v){
+    if(v.dataset.loaded)return; v.dataset.loaded='1';
+    v.src=v.dataset.lazySrc;
+    if(!reduce){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  }
+  if(!('IntersectionObserver' in window)){vids.forEach(load);return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){load(e.target);}
+      else if(e.target.dataset.loaded&&!e.target.paused){e.target.pause();}
+      if(e.isIntersecting&&e.target.dataset.loaded&&e.target.paused&&!reduce){
+        var p=e.target.play();if(p&&p.catch)p.catch(function(){});
+      }
+    });
+  },{rootMargin:'320px 0px'});
+  vids.forEach(function(v){io.observe(v);});
+})();
+</script>
 </body>
 </html>`;
   iframe.setAttribute('scrolling','no');
