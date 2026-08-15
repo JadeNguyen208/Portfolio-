@@ -404,10 +404,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 @keyframes nvlcGlow{0%,100%{opacity:.45;transform:translate(-50%,-50%) translateZ(-40px) scale(1)}50%{opacity:.85;transform:translate(-50%,-50%) translateZ(-40px) scale(1.1)}}
 @keyframes nvlcHint{0%,100%{opacity:.35}50%{opacity:.9}}
 /* Sleeping dragon — its own framed panel: sanctuary plate + transparent beast on top */
-.dragon-stage{position:relative;width:100%;max-width:660px;margin:24px auto 0;border:1px solid rgba(240,192,64,.2);border-radius:8px;overflow:hidden;background:#070d0a;isolation:isolate;}
-.dragon-stage-bg{width:100%;height:auto;display:block;}
+.dragon-stage{position:relative;width:100%;max-width:900px;aspect-ratio:16/9;margin:24px auto 0;border:1px solid rgba(240,192,64,.2);border-radius:8px;overflow:hidden;background:#070d0a;isolation:isolate;}
+.dragon-stage-bg{width:100%;height:100%;object-fit:cover;display:block;}
 .dragon-stage::after{content:'';position:absolute;inset:0;z-index:2;background:radial-gradient(120% 85% at 50% 55%,transparent 58%,rgba(4,8,6,.5));pointer-events:none;}
-.dragon-stage-slot{position:absolute;left:49.5%;top:58.5%;width:58%;z-index:1;transform:translate(-50%,-50%);}
+.dragon-stage-slot{position:absolute;left:48.4%;top:62.5%;width:54%;z-index:1;transform:translate(-50%,-50%);}
 .dragon-stage-slot img{width:100%;height:auto;display:block;filter:drop-shadow(0 14px 18px rgba(4,20,14,.5));}
 /* Live waterfalls — same 3-layer pure-CSS technique shipped in the game's habitat */
 .dr-water{position:absolute;inset:0;z-index:1;pointer-events:none;}
@@ -441,7 +441,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 @keyframes waterfallFilament{from{background-position:0 -36%}to{background-position:0 36%}}
 @keyframes waterfallDroplets{0%{background-position:0 -39%;opacity:.4}36%{opacity:.78}100%{background-position:0 39%;opacity:.42}}
 @media(prefers-reduced-motion:reduce){.dr-stream,.dr-stream::before,.dr-stream::after,.ph-stream,.ph-stream::before,.ph-stream::after{animation:none!important;}}
-@media(max-width:560px){.dragon-stage-slot{width:66%;}}
+@media(max-width:560px){.dragon-stage-slot{width:62%;}}
 /* Sleeping-dragon breath — the exact curve shipped in the game build */
 .dragon-breath{transform-origin:50% 82%;will-change:transform,filter;animation:dragonSleepBreath 5.2s ease-in-out infinite;}
 @keyframes dragonSleepBreath{
@@ -478,7 +478,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 @media(max-width:480px){.linh-gallery{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto;}}
 /* Living Habitat — live sprite bird */
 .habitat{position:relative;width:100%;aspect-ratio:1536/864;margin-top:24px;border:1px solid rgba(240,192,64,.2);border-radius:8px;overflow:hidden;background:#0a0e0a;isolation:isolate;}
-.habitat-scene{position:absolute;inset:0;background:url('phoenix-habitat.webp') center center/cover no-repeat;z-index:1;}
+.habitat-scene{position:absolute;inset:0;z-index:1;overflow:hidden;}.habitat-scene video{width:100%;height:100%;object-fit:cover;display:block;}
 .habitat::after{content:'';position:absolute;inset:0;z-index:2;background:radial-gradient(130% 90% at 50% 42%,transparent 52%,rgba(4,6,4,.5)),linear-gradient(to bottom,rgba(4,6,4,.35),transparent 26%,transparent 68%,rgba(4,6,4,.62));pointer-events:none;}
 /* Live waterfalls on the phoenix habitat — same streams as the dragon panel */
 .ph-water{position:absolute;inset:0;z-index:3;pointer-events:none;}
@@ -763,7 +763,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
       </div>
       <div class="cs-insight"><p>A bestiary only feels real when every creature looks like it came from the same world — same light, same camera, same soul.</p></div></div></div>
     <div class="cs-block"><div class="cs-block-label">02 — Bringing It to Life</div><div class="cs-block-content"><h3>A Spirit Bird That Actually Walks</h3><p>The flagship isn't just a picture. Below, the <strong>Jade-Plume Spirit Phoenix</strong> runs live: a hand-written engine wanders it between waypoints, flips its facing, and cycles a <strong>4-frame sprite sheet</strong> for the gait — one <code>requestAnimationFrame</code> loop, GPU-moved with <code>translate3d</code>. Behind it an <strong>azure dragon sleeps</strong> on its own 5.2s breath — two creatures, two clocks, so nothing looks choreographed.</p>
-      <div class="habitat" id="nvlc-habitat"><div class="habitat-scene"></div><div class="ph-water" aria-hidden="true"><div class="ph-stream ph-f1"></div><div class="ph-stream ph-f2"></div><div class="ph-stream ph-f3"></div><div class="ph-stream ph-f4"></div><div class="ph-stream ph-f5"></div><div class="ph-stream ph-f6"></div><div class="ph-stream ph-f7"></div><div class="ph-stream ph-f8"></div><div class="ph-stream ph-f9"></div><div class="ph-stream ph-f10"></div><div class="ph-stream ph-f11"></div><div class="ph-stream ph-f12"></div><div class="ph-stream ph-f13"></div><div class="ph-stream ph-f14"></div><div class="ph-stream ph-f15"></div></div><span class="habitat-status" id="nvlc-bird-status">Roaming…</span><div class="habitat-bird-slot" id="nvlc-bird-slot"><div class="habitat-bird" id="nvlc-bird"><div class="habitat-bird-sprite" id="nvlc-bird-sprite"></div></div></div><span class="cs-visual-label">LIVE SPRITE · WALKING PHOENIX + SLEEPING DRAGON · HAND-CODED</span></div>
+      <div class="habitat" id="nvlc-habitat"><div class="habitat-scene"><video src="habitat-landscape.mp4" poster="phoenix-habitat.webp" autoplay muted loop playsinline preload="metadata" aria-label="Spirit phoenix sanctuary — living landscape with drifting mist"></video></div><span class="habitat-status" id="nvlc-bird-status">Roaming…</span><div class="habitat-bird-slot" id="nvlc-bird-slot"><div class="habitat-bird" id="nvlc-bird"><div class="habitat-bird-sprite" id="nvlc-bird-sprite"></div></div></div><span class="cs-visual-label">LIVE SPRITE · WALKING PHOENIX + SLEEPING DRAGON · HAND-CODED</span></div>
       <div class="cs-craft">
         <div class="cs-craft-item"><span class="cs-craft-k">Wander AI</span><div class="cs-craft-v">Picks random waypoints, walks there, pauses, then rests or roams again — so it never feels scripted.</div></div>
         <div class="cs-craft-item"><span class="cs-craft-k">Sprite Sheet</span><div class="cs-craft-v">One <code>560×400</code> strip of 4 poses; <code>background-position</code> swaps frames for a walking gait.</div></div>
@@ -771,10 +771,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
       </div></div></div>
     <div class="cs-block"><div class="cs-block-label">03 — A Dragon That Breathes</div><div class="cs-block-content"><h3>A Dragon Asleep in Its Sanctuary</h3><p>Not every creature needs to walk to feel alive. The <strong>azure spirit dragon</strong> sleeps coiled on its crystal lake, and the illusion rests on one detail: <strong>a body that doesn't scale uniformly.</strong> Breath expands a torso more vertically than horizontally — get that ratio wrong and it reads as a zoom, not a creature.</p>
       <div class="dragon-stage">
-        <img class="dragon-stage-bg" src="dragon-sanctuary.webp" alt="Azure dragon sanctuary — a crystal lake ringed by jade balustrades, waterfalls and a golden shrine" loading="lazy">
-        <div class="dr-water" aria-hidden="true">
-          <span class="dr-stream dr-f1"></span><span class="dr-stream dr-f2"></span><span class="dr-stream dr-f3"></span><span class="dr-stream dr-f4"></span><span class="dr-stream dr-f5"></span><span class="dr-stream dr-f6"></span><span class="dr-stream dr-f7"></span><span class="dr-stream dr-f8"></span><span class="dr-stream dr-f9"></span><span class="dr-stream dr-f10"></span><span class="dr-stream dr-f11"></span><span class="dr-stream dr-f12"></span>
-        </div>
+        <video class="dragon-stage-bg" src="sanctuary-waterfalls.mp4" poster="dragon-sanctuary.webp" autoplay muted loop playsinline preload="metadata" aria-label="Azure dragon sanctuary — waterfalls flowing and mist drifting over the crystal lake"></video>
+        
         <span class="dragon-stage-slot"><img class="dragon-breath" src="dragon-sleep.webp" alt="Azure spirit dragon asleep, coiled on the sanctuary lake, breathing" loading="lazy"></span>
         <span class="cs-visual-label">AZURE DRAGON · 5.2S SLEEP-BREATH CYCLE · SHIPPED CSS</span>
       </div>
