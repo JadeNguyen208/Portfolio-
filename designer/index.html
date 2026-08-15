@@ -476,9 +476,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .rd-r{background:#ff5a5a;box-shadow:0 0 8px rgba(255,90,90,.7)}
 @media(max-width:900px){.linh-gallery{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:480px){.linh-gallery{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto;}}
-/* Living Habitat — live sprite bird */
+/* Living Habitat — bird, waterfalls and mist baked into one video */
 .habitat{position:relative;width:100%;aspect-ratio:1536/864;margin-top:24px;border:1px solid rgba(240,192,64,.2);border-radius:8px;overflow:hidden;background:#0a0e0a;isolation:isolate;}
-.habitat-scene{position:absolute;inset:0;background:url('../phoenix-habitat.webp') center center/cover no-repeat;z-index:1;}
+.habitat-scene{position:absolute;inset:0;z-index:1;overflow:hidden;}.habitat-scene video{width:100%;height:100%;object-fit:cover;display:block;}
 .habitat::after{content:'';position:absolute;inset:0;z-index:2;background:radial-gradient(130% 90% at 50% 42%,transparent 52%,rgba(4,6,4,.5)),linear-gradient(to bottom,rgba(4,6,4,.35),transparent 26%,transparent 68%,rgba(4,6,4,.62));pointer-events:none;}
 /* Live waterfalls on the phoenix habitat — same streams as the dragon panel */
 .ph-water{position:absolute;inset:0;z-index:3;pointer-events:none;}
@@ -497,11 +497,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .ph-f13{left:85.5%;top:54.2%;width:2.1%;height:9.0%;opacity:0.72;clip-path:polygon(24% 0,96% 7%,72% 100%,2% 90%);animation-duration:2.14s;animation-delay:-0.04s;}
 .ph-f14{left:87.9%;top:55.3%;width:1.4%;height:7.9%;opacity:0.72;clip-path:polygon(26% 0,98% 8%,74% 100%,0 91%);animation-duration:2.27s;animation-delay:-0.41s;}
 .ph-f15{left:89.3%;top:46.6%;width:1.7%;height:5.6%;opacity:0.72;clip-path:polygon(22% 0,94% 6%,70% 100%,0 88%);animation-duration:1.75s;animation-delay:-0.78s;}
-.habitat-bird-slot{position:absolute;inset:0;width:100%;height:100%;z-index:100;pointer-events:none;will-change:transform;}
-.habitat-bird{position:absolute;left:0;top:0;width:23%;min-width:140px;transform:translate(-50%,-88%);filter:drop-shadow(0 6px 9px rgba(0,0,0,.55)) drop-shadow(0 0 15px rgba(150,255,210,.4));}
-.habitat-bird-sprite{display:block;width:100%;aspect-ratio:560/400;background:url('../ngoc-vu-linh-cam-sheet-v2.webp') no-repeat;background-size:400% 100%;background-position-x:0%;transform:scaleX(var(--bird-facing,1));transform-origin:50% 100%;}
-.habitat-status{position:absolute;left:14px;top:12px;z-index:200;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:rgba(185,242,218,.9);text-transform:uppercase;background:rgba(6,10,6,.6);padding:5px 11px;border-radius:20px;border:1px solid rgba(150,240,205,.28);display:inline-flex;align-items:center;gap:7px;}
-.habitat-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#8effc8;box-shadow:0 0 7px rgba(142,255,200,.9);}
 .flora-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px;}
 .flora-card{border:1px solid rgba(240,192,64,.18);border-radius:8px;background:radial-gradient(120% 100% at 30% 20%,rgba(30,42,20,.92),rgba(9,12,8,.98));padding:16px 14px 15px;text-align:center;}
 .flora-card img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;filter:drop-shadow(0 8px 18px rgba(0,0,0,.55));}
@@ -511,7 +506,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 @media(max-width:760px){.flora-trio{grid-template-columns:1fr;max-width:330px;margin-left:auto;margin-right:auto;}}
 .cs-inline-visual{width:100%;height:auto;max-height:420px;position:relative;margin:24px 0 4px;border:1px solid rgba(240,192,64,.18);border-radius:4px;overflow:hidden;background:rgba(20,26,18,.9);}
 .cs-inline-visual img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;}
-@media(max-width:560px){.habitat-bird{width:28%;}}
 @media(prefers-reduced-motion:reduce){.farm-hero-float,.farm-hero-glow,.farm-hero-hint,.linh-card img{animation:none!important;}}
 </style>
 </head>
@@ -744,12 +738,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
         <div class="linh-card legendary"><span class="tier"><i></i>Divine</span><img src="../tieu-long-khong-gian-3d.webp" alt="Cosmic Space Dragon — legendary Divine-tier 3D render" loading="lazy"><div class="linh-cap"><b>Cosmic Space Dragon</b><span>Legendary tier</span></div></div>
       </div>
       <div class="cs-insight"><p>A bestiary only feels real when every creature looks like it came from the same world — same light, same camera, same soul.</p></div></div></div>
-    <div class="cs-block"><div class="cs-block-label">02 — Bringing It to Life</div><div class="cs-block-content"><h3>A Spirit Bird That Actually Walks</h3><p>The flagship isn't just a picture. Below, the <strong>Jade-Plume Spirit Phoenix</strong> runs live: a hand-written engine wanders it between waypoints, flips its facing, and cycles a <strong>4-frame sprite sheet</strong> for the gait — one <code>requestAnimationFrame</code> loop, GPU-moved with <code>translate3d</code>. Behind it an <strong>azure dragon sleeps</strong> on its own 5.2s breath — two creatures, two clocks, so nothing looks choreographed.</p>
-      <div class="habitat" id="nvlc-habitat"><div class="habitat-scene"></div><div class="ph-water" aria-hidden="true"><div class="ph-stream ph-f1"></div><div class="ph-stream ph-f2"></div><div class="ph-stream ph-f3"></div><div class="ph-stream ph-f4"></div><div class="ph-stream ph-f5"></div><div class="ph-stream ph-f6"></div><div class="ph-stream ph-f7"></div><div class="ph-stream ph-f8"></div><div class="ph-stream ph-f9"></div><div class="ph-stream ph-f10"></div><div class="ph-stream ph-f11"></div><div class="ph-stream ph-f12"></div><div class="ph-stream ph-f13"></div><div class="ph-stream ph-f14"></div><div class="ph-stream ph-f15"></div></div><span class="habitat-status" id="nvlc-bird-status">Roaming…</span><div class="habitat-bird-slot" id="nvlc-bird-slot"><div class="habitat-bird" id="nvlc-bird"><div class="habitat-bird-sprite" id="nvlc-bird-sprite"></div></div></div><span class="cs-visual-label">LIVE SPRITE · WALKING PHOENIX + SLEEPING DRAGON · HAND-CODED</span></div>
+    <div class="cs-block"><div class="cs-block-label">02 — Bringing It to Life</div><div class="cs-block-content"><h3>A Spirit Bird Inside a Living Habitat</h3><p>The updated habitat footage already contains the <strong>Jade-Plume Spirit Phoenix</strong>, flowing waterfalls and drifting mist in one restrained loop. Keeping them in a single motion layer removes the separate roaming sprite, so the bird never doubles up or fights the camera movement.</p>
+      <div class="habitat" id="nvlc-habitat"><div class="habitat-scene"><video data-lazy-src="../habitat-landscape.mp4" poster="../phoenix-habitat.webp" muted loop playsinline preload="none" aria-label="Jade-Plume Spirit Phoenix in its sanctuary, with flowing waterfalls and drifting mist"></video></div><span class="cs-visual-label">LOOPING HABITAT VIDEO · BIRD + WATERFALLS · LAZY-LOADED</span></div>
       <div class="cs-craft">
-        <div class="cs-craft-item"><span class="cs-craft-k">Wander AI</span><div class="cs-craft-v">Picks random waypoints, walks there, pauses, then rests or roams again — so it never feels scripted.</div></div>
-        <div class="cs-craft-item"><span class="cs-craft-k">Sprite Sheet</span><div class="cs-craft-v">One <code>560×400</code> strip of 4 poses; <code>background-position</code> swaps frames for a walking gait.</div></div>
-        <div class="cs-craft-item"><span class="cs-craft-k">GPU Compositor</span><div class="cs-craft-v"><code>translate3d</code> + depth-sorted <code>z-index</code> by ground position, one <code>rAF</code> loop, paused when the tab hides.</div></div>
+        <div class="cs-craft-item"><span class="cs-craft-k">Single Motion Layer</span><div class="cs-craft-v">Bird, waterfalls and mist share one composition, so their timing and camera perspective always agree.</div></div>
+        <div class="cs-craft-item"><span class="cs-craft-k">Natural Loop</span><div class="cs-craft-v">Subtle environmental motion keeps the sanctuary alive without pulling focus from the case-study text.</div></div>
+        <div class="cs-craft-item"><span class="cs-craft-k">Lazy Playback</span><div class="cs-craft-v">The video loads only when the panel is near the viewport and pauses again after it leaves.</div></div>
       </div></div></div>
     <div class="cs-block"><div class="cs-block-label">03 — A Dragon That Breathes</div><div class="cs-block-content"><h3>A Dragon Asleep in Its Sanctuary</h3><p>Not every creature needs to walk to feel alive. The <strong>azure spirit dragon</strong> sleeps coiled on its crystal lake, and the illusion rests on one detail: <strong>a body that doesn't scale uniformly.</strong> Breath expands a torso more vertically than horizontally — get that ratio wrong and it reads as a zoom, not a creature.</p>
       <div class="dragon-stage">
@@ -923,34 +917,6 @@ new IntersectionObserver(es=>{if(es[0].isIntersecting)runContact();},{threshold:
     raf=requestAnimationFrame(()=>{tilt.style.transform=`rotateX(${y*-7}deg) rotateY(${x*9}deg)`;});
   });
   hero.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);tilt.style.transform='';});
-})();
-// ── CS04: Living Habitat — Ngọc Vũ Linh Cầm walking sprite engine ──
-(function(){
-  var slot=document.getElementById('nvlc-bird-slot'),sprite=document.getElementById('nvlc-bird-sprite'),statusEl=document.getElementById('nvlc-bird-status');
-  if(!slot||!sprite)return;
-  var BAND={xMin:34,xMax:72,yMin:64,yMax:88},SPEED=13,FRAME_MS=190; // SPEED = % width / sec; band tracks the nest island so the bird never walks on open water
-  var bird={x:52,y:78,tx:52,ty:78,facing:1,frame:0,pause:0,rest:0,frameT:0,need:true},lastStatus='';
-  function rand(a,b){return a+Math.random()*(b-a);}
-  function setFrame(f){if(bird.frame===f)return;bird.frame=f;sprite.style.backgroundPositionX=(f/3*100)+'%';}
-  function setStatus(t){if(t===lastStatus)return;lastStatus=t;if(statusEl)statusEl.textContent=t;}
-  function pickTarget(){bird.tx=rand(BAND.xMin,BAND.xMax);bird.ty=rand(BAND.yMin,BAND.yMax);bird.facing=bird.tx>=bird.x?1:-1;}
-  function paint(){slot.style.transform='translate3d('+bird.x.toFixed(2)+'%,'+bird.y.toFixed(2)+'%,0)';slot.style.zIndex=String(100+Math.round(bird.y));sprite.style.setProperty('--bird-facing',bird.facing);}
-  function update(dt){
-    if(bird.pause>0){bird.pause-=dt;setFrame(bird.rest?3:0);setStatus(bird.rest?'Resting':'Pausing');return;}
-    if(bird.need){pickTarget();bird.need=false;}
-    var dx=bird.tx-bird.x,dy=bird.ty-bird.y,dist=Math.hypot(dx,dy);
-    if(dist<=0.6){bird.x=bird.tx;bird.y=bird.ty;bird.pause=rand(700,2600);bird.rest=Math.random()<0.3?1:0;bird.need=true;setFrame(0);return;}
-    var step=Math.min(dist,SPEED*(dt/1000));
-    bird.x+=dx/dist*step;bird.y+=dy/dist*step;
-    bird.frameT+=dt;if(bird.frameT>=FRAME_MS){bird.frameT=0;setFrame(bird.frame===1?0:1);}
-    setStatus('Roaming');
-  }
-  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(reduce){setFrame(0);paint();return;}
-  var last=0,braf=0;
-  function tick(t){if(!last)last=t;var dt=Math.min(t-last,250);last=t;update(dt);paint();braf=document.hidden?0:requestAnimationFrame(tick);}
-  document.addEventListener('visibilitychange',function(){if(!document.hidden&&!braf){last=0;braf=requestAnimationFrame(tick);}});
-  paint();braf=requestAnimationFrame(tick);
 })();
 </script>
 <script>
@@ -1158,7 +1124,7 @@ document.querySelectorAll('.province').forEach(el => {
 bgInit();
 </script>
 <script>
-// The sanctuary is far down the page: fetch and play its video only when nearby.
+// Habitat footage is far down the page: fetch and play each video only when nearby.
 (function(){
   var vids=[].slice.call(document.querySelectorAll('video[data-lazy-src]'));
   if(!vids.length)return;
