@@ -1,0 +1,47 @@
+<!--
+  IDENTITÄTS-FOOTER
+  Auf JEDER Seite einbauen (nicht nur im Impressum). Das ist der Teil, den ein
+  Prüfer von Google auf der Startseite sieht: voller Vereinsname + Register +
+  Domain, alles an einer Stelle.
+
+  CMS ohne Code-Zugriff (Wix / Jimdo / Squarespace): den Text unten einfach als
+  Textblock in den globalen Footer eintragen – die Formatierung ist zweitrangig,
+  entscheidend ist, dass der volle eingetragene Name dort steht.
+-->
+<footer class="site-identity">
+  <p>
+    <strong>Verein für buddhistische Praxis und Gemeinschaft e.V.</strong><br>
+    [[STRASSE UND HAUSNUMMER]], [[PLZ]] [[ORT]] &middot;
+    Vereinsregister Amtsgericht [[ORT]], VR [[NUMMER]]<br>
+    Offizielles Internetangebot des Vereins:
+    <a href="https://www.buddhistische-praxis-gemeinschaft.de/">buddhistische-praxis-gemeinschaft.de</a>
+  </p>
+  <p>
+    <a href="/impressum">Impressum</a> &middot;
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+</footer>
+
+<!--
+  OPTIONAL, ABER HILFREICH: strukturierte Daten (schema.org).
+  Macht die Verbindung Organisation <-> Domain auch maschinenlesbar.
+  Ins <head> jeder Seite oder mindestens auf die Startseite.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Verein für buddhistische Praxis und Gemeinschaft e.V.",
+  "url": "https://www.buddhistische-praxis-gemeinschaft.de/",
+  "logo": "https://www.buddhistische-praxis-gemeinschaft.de/[[LOGO-DATEI]]",
+  "email": "[[info@buddhistische-praxis-gemeinschaft.de]]",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[[STRASSE UND HAUSNUMMER]]",
+    "postalCode": "[[PLZ]]",
+    "addressLocality": "[[ORT]]",
+    "addressCountry": "DE"
+  },
+  "identifier": "Vereinsregister Amtsgericht [[ORT]], VR [[NUMMER]]"
+}
+</script>
