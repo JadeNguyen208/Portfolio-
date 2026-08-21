@@ -1,8 +1,10 @@
 # Reply to Google for Nonprofits
 
-Send this **only after** the Impressum page and the footer are live and publicly
-reachable — the reviewer will click the link in your reply. Replying to an
-unchanged site gets you the same rejection.
+Send this **only after** step 0 and step 1 of the README are done — the apex domain
+`buddhistische-praxis-gemeinschaft.de` (no `www`) must load the site, and the Impressum
+page and footer must be live and publicly reachable. The reviewer will open the bare
+domain and click the link in your reply. Replying to an unchanged site gets you the same
+rejection.
 
 Reply directly to the rejection email so the case history stays attached. If the
 thread is closed, use the Google for Nonprofits contact form and reference the
@@ -27,7 +29,7 @@ Replace every `[[...]]` before sending.
 >
 > We have now made this connection explicit on the website itself:
 >
-> * **Legal notice (Impressum):** https://www.buddhistische-praxis-gemeinschaft.de/impressum
+> * **Legal notice (Impressum):** https://buddhistische-praxis-gemeinschaft.de/impressum
 >   It states our full legal name, registered address, board members, register court and
 >   registration number, and confirms in a dedicated paragraph that the association operates
 >   this website and this domain.
@@ -75,7 +77,7 @@ Replace every `[[...]]` before sending.
 >
 > Wir haben diese Verbindung nun ausdrücklich auf der Website selbst hinterlegt:
 >
-> * **Impressum:** https://www.buddhistische-praxis-gemeinschaft.de/impressum
+> * **Impressum:** https://buddhistische-praxis-gemeinschaft.de/impressum
 >   Dort finden Sie den vollständigen Vereinsnamen, die Anschrift, den Vorstand, das
 >   Registergericht und die Registernummer sowie einen eigenen Absatz, der bestätigt, dass der
 >   Verein diese Website und diese Domain betreibt.
