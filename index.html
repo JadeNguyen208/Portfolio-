@@ -869,21 +869,27 @@ let bgF=0;
 window.addEventListener('resize',bgInit);window.addEventListener('orientationchange',()=>setTimeout(bgInit,300));
 const statsData=[{id:'hn1',t:6,sfx:'+'},{id:'hn2',t:90,sfx:'+'},{id:'hn3',t:18,sfx:'+'},{id:'hn4',t:5,sfx:''}];
 const statsEase=t=>1-Math.pow(1-t,3);
+function setStatsFinal(){statsData.forEach(d=>{const el=document.getElementById(d.id);if(el)el.textContent=d.t+d.sfx;});}
 function runStats(){
   const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce){setStatsFinal();return;}
+  // A hidden tab does not paint, so wait for it rather than animating into nothing.
+  if(document.hidden){document.addEventListener('visibilitychange',function once(){if(!document.hidden){document.removeEventListener('visibilitychange',once);runStats();}});return;}
+  const dur=850;let running=0;
   statsData.forEach((d,i)=>{
     const el=document.getElementById(d.id);if(!el)return;
-    if(reduce){el.textContent=d.t+d.sfx;return;}
-    const dur=850,delay=i*70;let t0=null;
+    const delay=i*70;let t0=null;running++;
     const step=ts=>{
       if(t0===null)t0=ts;
       const p=(ts-t0-delay)/dur;
       if(p<0){requestAnimationFrame(step);return;}
       el.textContent=Math.round(statsEase(Math.min(1,p))*d.t)+d.sfx;
-      if(p<1)requestAnimationFrame(step);
+      if(p<1){requestAnimationFrame(step);}else{running--;}
     };
     requestAnimationFrame(step);
   });
+  // Safety net: if rAF never delivers frames, show the numbers rather than a row of zeros.
+  setTimeout(()=>{if(running>0)setStatsFinal();},dur+statsData.length*70+1200);
 }
 setTimeout(runStats,1250);
 function showFrontend(){const el=document.querySelector('.h-frontend');if(el)el.classList.add('show');}
