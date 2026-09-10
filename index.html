@@ -870,7 +870,7 @@ function bgInit(){bW=bgCv.width=innerWidth;bH=bgCv.height=innerHeight;bgAmb=[];c
 let bgF=0;
 (function bgR(){requestAnimationFrame(bgR);bgCtx.fillStyle='rgba(7,7,5,.17)';bgCtx.fillRect(0,0,bW,bH);if(bgF%2===0){for(let i=0;i<bgAmb.length;i++){for(let j=i+1;j<bgAmb.length;j++){const a=bgAmb[i],b=bgAmb[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<100){bgCtx.beginPath();bgCtx.moveTo(a.x,a.y);bgCtx.lineTo(b.x,b.y);bgCtx.strokeStyle=`rgba(201,168,76,${(1-d/100)*.09})`;bgCtx.lineWidth=.5;bgCtx.stroke();}}}}bgAmb.forEach(a=>{a.upd();a.draw();});bgF++;})();
 window.addEventListener('resize',bgInit);window.addEventListener('orientationchange',()=>setTimeout(bgInit,300));
-const statsData=[{id:'hn1',t:6,sfx:'+'},{id:'hn2',t:90,sfx:'+'},{id:'hn3',t:18,sfx:'+'},{id:'hn4',t:5,sfx:''}];
+const statsData=[{id:'hn1',t:6,sfx:'+'},{id:'hn2',t:90,sfx:'+'},{id:'hn3',t:50,sfx:'+'},{id:'hn4',t:5,sfx:''}];
 const statsEase=t=>1-Math.pow(1-t,3);
 function setStatsFinal(){statsData.forEach(d=>{const el=document.getElementById(d.id);if(el)el.textContent=d.t+d.sfx;});}
 function runStats(){
