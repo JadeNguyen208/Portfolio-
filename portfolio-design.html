@@ -466,12 +466,12 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
         <ul><li>Motion work trained my eye for <span class="hl">timing</span> — I feel when a transition lands 80ms late, and fix it in code.</li><li><span class="hl">Careful and accountable</span> — pixel, timing and edge case checked before I call it done.</li></ul>
       </div>
       <div class="card ab-card rv">
-        <span class="label">Team</span><h3>Building in a team</h3>
-        <ul><li>Worked in an <span class="hl">8-person team</span> building an <span class="hl">internal task-management app</span>.</li><li><span class="hl">50+ end-to-end projects</span>, concept through deploy.</li><li>Clear handoffs, obvious ownership — I unblock others early.</li></ul>
+        <span class="label">Team</span><h3>Team &amp; leadership</h3>
+        <ul><li>Led a <span class="hl">90+ person, multi-timezone team</span> — grown from 20+ with <span class="hl">90–95% retention</span>.</li><li>Worked in an <span class="hl">8-person team</span> building an <span class="hl">internal task-management app</span>.</li><li><span class="hl">50+ end-to-end projects</span>, concept through deploy.</li><li>Clear handoffs, obvious ownership — I unblock others early.</li></ul>
       </div>
       <div class="card ab-card rv">
         <span class="label">Philosophy</span><h3>Always creative</h3>
-        <ul><li><span class="hl">Curious past the brief</span> — Canvas, Web Audio, Angular or machine learning, whatever the work demands.</li><li>I'd rather say <span class="hl">“I don't know yet, give me a week”</span> than pretend.</li></ul>
+        <ul><li><span class="hl">Curious past the brief</span> — Canvas, Web Audio, Angular or machine learning, whatever the work demands.</li><li><span class="hl">Always learning</span> — I keep picking up new tools and techniques to sharpen my skills.</li></ul>
       </div>
     </div>
   </div>
@@ -540,7 +540,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
       </article>
       <article class="card tile rv">
         <div class="img"><img src="hoaquason-card-4x3.webp" alt="Hoa Quả Sơn Farm" loading="lazy"></div>
-        <div class="body"><span class="label">Live · E-commerce</span><h3>Hoa Quả Sơn Farm</h3><p>A premium fruit storefront — hand-drawn Canvas, an origin map and three in-browser ML systems.</p><div class="chips"><span class="chip">Canvas</span><span class="chip">Firebase</span><span class="chip">Gemini API</span></div><div class="links"><a class="link" href="#case-fruit">Case study ›</a><a class="link" href="https://hoaquason-khanhhoa.web.app/" target="_blank" rel="noopener">Visit site ↗</a></div></div>
+        <div class="body"><span class="label">Live · E-commerce</span><h3>Hoa Quả Sơn Farm</h3><p>A premium fruit storefront — hand-drawn Canvas, an origin map, three ML systems and a Firebase backend.</p><div class="chips"><span class="chip">Canvas</span><span class="chip">Firebase</span><span class="chip">Gemini API</span></div><div class="links"><a class="link" href="#case-fruit">Case study ›</a><a class="link" href="https://hoaquason-khanhhoa.web.app/" target="_blank" rel="noopener">Visit site ↗</a></div></div>
       </article>
       <article class="card tile rv">
         <div class="img"><img src="workgarden-project-4x3-v2.webp" alt="WorkGarden Kanban board" loading="lazy"></div>
@@ -647,9 +647,10 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
       <div class="map-col"><div class="map-frame" id="vn-map-host"></div><p class="map-cap"><b>📍 Khánh Hòa</b> — single-origin region · hover to explore</p></div>
     </div>
     <div class="card block rv">
-      <span class="num">04 — Three ML Systems, Real Data</span>
+      <span class="num">04 — Three ML Systems on a Firebase Backend</span>
       <h3>Where this becomes ML engineering</h3>
-      <p>Smart features ship as quiet micro-interactions, never an “AI feature” banner. <strong>Three are real ML systems, not API wrappers</strong>, and each degrades to a documented fallback so the storefront stays usable. A fourth — the delivery-zone check — is rule-based on purpose.</p>
+      <p>Smart features ship as quiet micro-interactions, never an “AI feature” banner. <strong>Three are real ML systems, not API wrappers</strong>, and each degrades to a documented fallback so the storefront stays usable. A fourth — the delivery-zone check — is rule-based on purpose.</p><p>They sit on a <strong>real backend — Firebase Auth, Firestore and Cloud Functions</strong>, so a solo build still gets real accounts and real data:</p>
+      <ul class="mini-list"><li><b>Login</b> — Google or email, with a customer profile</li><li><b>Order history</b> — each customer sees their own past orders; Firestore security rules keep everyone else's private</li><li><b>Admin</b> — an admin role updates order status and rebuilds the recommender from real orders</li><li><b>AI proxy</b> — Gemini calls go through a Cloud Function, so the API key never reaches the browser</li></ul>
       <div class="tbl-wrap"><table class="tbl"><tr><th>System</th><th>Technique</th><th>Where it runs</th></tr>
         <tr><td>Product Recommender</td><td>Item-based collaborative filtering — co-occurrence over real orders, recent orders weighted higher (90-day decay)</td><td>Built from Firestore orders · served as anonymous aggregate stats</td></tr>
         <tr><td>Farm Advisor Chatbot</td><td>RAG — keyword retrieval over knowledge base + catalogue, injected as context</td><td>Client retrieval · Gemini via a Cloud Function</td></tr>
@@ -658,12 +659,6 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
       <p class="insight">It started as a colour heuristic — plausible numbers, no model. Rebuilding it on embeddings was the difference between a UI trick and an ML system honest about how it fails.</p>
       <div class="metrics"><div class="metric"><b>3</b><span>ML systems — recommender, RAG, vision</span></div><div class="metric"><b>0</b><span>API keys shipped to the browser</span></div><div class="metric"><b>21</b><span>Reference photos across 14 SKUs</span></div></div>
       <div class="note"><b>Honest about the limits</b><p>MobileNet is pretrained on ImageNet, not fine-tuned on Vietnamese fruit — it works by nearest-neighbour against the farm's own photos. Next step: more labelled photos and a fine-tuned classification head. I'm building the theory behind that through HarvardX: Data Science — Machine Learning.</p></div>
-    </div>
-    <div class="card block rv">
-      <span class="num">05 — The Backend</span>
-      <h3>Accounts, orders and an admin — on Firebase</h3>
-      <p>A backend-as-a-service, so a solo build still gets <strong>real accounts and real data</strong> without servers to babysit.</p>
-      <ul class="mini-list"><li><b>Login</b> — Google or email, with a customer profile</li><li><b>Order history</b> — each customer sees their own past orders; Firestore security rules keep everyone else's private</li><li><b>Admin</b> — an admin role updates order status and rebuilds the recommender from real orders</li><li><b>AI proxy</b> — Gemini calls go through a Cloud Function, so the API key never reaches the browser</li></ul>
     </div>
   </div>
 </section>
