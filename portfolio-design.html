@@ -139,15 +139,6 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;width:10
 .ab-card li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--acc)}
 .ab-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
 .nw{white-space:nowrap}
-#experience .e2e{max-width:1000px;margin:64px auto 0}
-.e2e{margin-top:20px;padding:clamp(32px,4.4vw,56px)}
-.e2e h3{font-size:var(--t-h3);letter-spacing:-.03em;line-height:1.08;max-width:760px}
-.e2e>p{color:var(--fg2);max-width:680px;margin-top:14px}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:34px}
-.step{background:var(--card2);border-radius:var(--r-md);padding:20px 18px 22px}
-.step small{display:block;font-size:14px;font-weight:600;color:var(--acc)}
-.step b{display:block;font-size:21px;letter-spacing:-.02em;margin:4px 0 6px}
-.step span{display:block;font-size:15px;line-height:1.5;color:var(--fg2)}
 
 /* ═══════════════ SERVICES (white) ═══════════════ */
 .svc-title-star{display:inline-block;width:.7em;height:.7em;vertical-align:.02em;margin-left:.1em}
@@ -372,7 +363,6 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
 
 /* ═══════════════ RESPONSIVE ═══════════════ */
 @media(max-width:1060px){
-  .steps{grid-template-columns:repeat(3,1fr)}
   .ab-cards{grid-template-columns:1fr 1fr}.ab-cards>:last-child{grid-column:span 2}
 }
 @media(max-width:900px){
@@ -391,14 +381,13 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
   .stats{display:grid;grid-template-columns:1fr 1fr;row-gap:32px}.stat:nth-child(3)::before{display:none}
   .bento{grid-template-columns:1fr}
   .ab-cards,.hex-area,.linh-gallery,.flora-trio{grid-template-columns:1fr}.ab-cards>:last-child{grid-column:auto}
-  .steps{grid-template-columns:1fr 1fr}
   .spec-row{grid-template-columns:1fr;gap:10px;padding:22px 2px}.spec-row .k{font-size:19px}.spec-row .v{font-size:18px}.sk-ico{transform:none}
   .exp-row{grid-template-columns:1fr;gap:14px;padding:24px 2px}.exp-row h3{font-size:19px}.exp-row li{font-size:17px}
   .metric span{font-size:13px}
   .flora-trio{max-width:360px;margin-left:auto;margin-right:auto}
   #jn-fixed{width:46px;height:46px;right:14px;bottom:14px}#jn-fixed svg{width:46px;height:46px}#jn-fixed .jnf-inner{font-size:14px}
 }
-@media(max-width:460px){.ct-cards,.steps{grid-template-columns:1fr}.metrics{gap:8px}.metric{padding:16px 6px}}
+@media(max-width:460px){.ct-cards{grid-template-columns:1fr}.metrics{gap:8px}.metric{padding:16px 6px}}
 @media(max-width:360px){.metric{min-width:0}.metric b{font-size:28px}.metric span{font-size:12px;overflow-wrap:anywhere}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -454,7 +443,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
 <!-- ═════════ ABOUT · black ═════════ -->
 <section id="about" class="dark">
   <div class="wrap">
-    <div class="head rv"><span class="eyebrow">About</span><h2 class="h2">Design that <em class="acc">works.</em><br>Code that <em class="acc">ships.</em></h2></div>
+    <div class="head rv"><span class="eyebrow">About</span><h2 class="h2">Design that <em class="acc">works.</em><br>Code that <em class="acc">ships.</em></h2><p class="lead">I own the whole line, <span class="hl">concept to live product</span> — no handoff to a developer, no waiting on a designer. Every project on this page went through every stage with me, and each one is live.</p></div>
     <div class="ab-row">
       <div class="terminal rv">
         <div class="term-header"><div class="td" style="background:#ff5f56"></div><div class="td" style="background:#ffbd2e"></div><div class="td" style="background:#27c93f"></div><span>jade-nguyen.js</span></div>
@@ -465,7 +454,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
         <h3>Trained in marketing, fluent in code</h3>
         <ul>
           <li>MSc Digital Marketing Management — <span class="hl">Cardiff Met, UK</span> (2025)</li>
-          <li>Harvard <span class="hl">CS50</span>: Programming with Python · Artificial Intelligence with Python</li>
+          <li>Harvard <span class="hl">CS50</span>: Computer Science · Programming with Python · Artificial Intelligence with Python</li><li><span class="hl">ML engineering &amp; Python research</span> — hands-on study and projects alongside CS50</li>
           <li><span class="hl">HarvardX: Data Science — Machine Learning</span> (edX)</li>
           <li><span class="hl">Google Data Analytics</span> Professional Certificate</li>
         </ul>
@@ -520,18 +509,6 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
         <ul><li>Design and run a storefront end to end — apparel, mugs, stickers and greeting cards — on <b>a live, self-service marketplace</b>.</li></ul>
       </div>
     </div>
-    <div class="card e2e rv">
-      <span class="label">Hands-on, end to end</span>
-      <h3>I own the whole line — <em class="acc">concept to live product.</em></h3>
-      <p>No handoff to a developer, no waiting on a designer. Every project below went through every stage with me — and each one is live.</p>
-      <div class="steps">
-        <div class="step"><small>01</small><b>Concept</b><span>Define the real problem and who it's for.</span></div>
-        <div class="step"><small>02</small><b>Design</b><span>Art direction, type, colour, motion — resolved in the browser.</span></div>
-        <div class="step"><small>03</small><b>Build</b><span>Canvas, Web Audio, Angular. No template, no page builder.</span></div>
-        <div class="step"><small>04</small><b>Ship</b><span>Firebase, Vercel, GitHub Pages — real domain, real users.</span></div>
-        <div class="step"><small>05</small><b>Operate</b><span>Fix what breaks, add what customers ask for.</span></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -542,12 +519,12 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
     <div class="hex-area" id="hexArea">
       <canvas id="hex-canvas"></canvas>
       <div id="jn-svc"><div class="jn-wrap"><div class="jn-inner">JN</div><svg class="jn-spin" viewBox="0 0 110 110" width="112" height="112"><defs><path id="svc-orb" d="M55,9 a46,46 0 1,1 -0.01,0 z"/></defs><circle cx="55" cy="55" r="46" fill="none" stroke="rgba(184,137,42,0.55)" stroke-width="1.4"/><circle r="4.5" fill="#c9a84c"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#svc-orb"/></animateMotion></circle><text font-family="'Space Mono',monospace" font-size="7.2" fill="rgba(154,116,20,.9)" letter-spacing="2.6"><textPath href="#svc-orb" startOffset="0%">DIGITAL · DESIGNER · FRONTEND ·&nbsp;</textPath></text></svg></div></div>
-      <div class="svc-card" data-si="0"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M6.5 6.5h.01M9.5 6.5h.01"/></svg></span><span class="sc-num">01</span></div><div class="sc-title">Web Design &amp; Build</div><ul><li>HTML/CSS/JS from scratch</li><li>WordPress, Webflow &amp; Framer</li><li>Responsive, cross-browser</li></ul></div>
-      <div class="svc-card" data-si="1"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10z"/><path d="M13.5 7.5l3 3"/></svg></span><span class="sc-num">02</span></div><div class="sc-title">Visual &amp; Digital Design</div><ul><li>Social media graphics</li><li>Digital ad creatives</li><li>Landing pages, UI &amp; icons</li></ul></div>
-      <div class="svc-card" data-si="2"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.3v5.4l4.6-2.7z"/></svg></span><span class="sc-num">03</span></div><div class="sc-title">Motion &amp; Video</div><ul><li>After Effects animation</li><li>CapCut video editing</li><li>AI video — Veo 3, Kling</li></ul></div>
-      <div class="svc-card" data-si="3"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l6.5 16 2.3-6.7L20.5 10z"/><path d="M14 14l5 5"/></svg></span><span class="sc-num">04</span></div><div class="sc-title">Interactive UX</div><ul><li>Canvas API animation</li><li>Web Audio integration</li><li>Micro-interactions &amp; i18n</li></ul></div>
-      <div class="svc-card" data-si="4"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3.5l1.9 5 5 1.9-5 1.9-1.9 5-1.9-5-5-1.9 5-1.9z"/><path d="M18.5 14.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></span><span class="sc-num">05</span></div><div class="sc-title">AI-Powered Workflows</div><ul><li>Conversational image editing</li><li>Rapid prototyping</li><li>AI-assisted copywriting</li></ul></div>
-      <div class="svc-card" data-si="5"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="sc-num">06</span></div><div class="sc-title">Digital Marketing</div><ul><li>On-page SEO</li><li>Product Hunt launches</li><li>Social &amp; content strategy</li></ul></div>
+      <div class="svc-card" data-si="0"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M6.5 6.5h.01M9.5 6.5h.01"/></svg></span><span class="sc-num">01</span></div><div class="sc-title">Websites that ship</div><ul><li>Figma to a live domain</li><li>Hand-coded, Webflow, Framer or WordPress</li><li>Fast, responsive, accessible</li><li>Design systems &amp; reusable components</li></ul></div>
+      <div class="svc-card" data-si="1"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10z"/><path d="M13.5 7.5l3 3"/></svg></span><span class="sc-num">02</span></div><div class="sc-title">Brand &amp; visual design</div><ul><li>Brand guidelines teams follow</li><li>Social, ad &amp; campaign visuals</li><li>UI, icons &amp; landing pages</li><li>Design review &amp; sign-off for teams</li></ul></div>
+      <div class="svc-card" data-si="2"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.3v5.4l4.6-2.7z"/></svg></span><span class="sc-num">03</span></div><div class="sc-title">Motion &amp; video</div><ul><li>After Effects motion graphics</li><li>Short-form edits for social</li><li>AI video — Veo 3, Kling</li><li>Motion specs developers can build</li></ul></div>
+      <div class="svc-card" data-si="3"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l6.5 16 2.3-6.7L20.5 10z"/><path d="M14 14l5 5"/></svg></span><span class="sc-num">04</span></div><div class="sc-title">Interfaces that feel alive</div><ul><li>Micro-interactions, timed to the ms</li><li>Canvas &amp; Web Audio</li><li>Multi-language UI (i18n)</li><li>Smooth on low-end phones</li></ul></div>
+      <div class="svc-card" data-si="4"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3.5l1.9 5 5 1.9-5 1.9-1.9 5-1.9-5-5-1.9 5-1.9z"/><path d="M18.5 14.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></span><span class="sc-num">05</span></div><div class="sc-title">AI features, built in</div><ul><li>Recommenders &amp; RAG chat</li><li>Vision UI with honest fallbacks</li><li>AI-assisted prototyping</li><li>LLM APIs — Claude, Gemini</li></ul></div>
+      <div class="svc-card" data-si="5"><div class="sc-top"><span class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="sc-num">06</span></div><div class="sc-title">Launch &amp; growth</div><ul><li>On-page SEO</li><li>Product Hunt launches</li><li>Social &amp; content strategy</li><li>Iterating from real user data</li></ul></div>
     </div>
   </div>
 </section>
@@ -563,7 +540,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
       </article>
       <article class="card tile rv">
         <div class="img"><img src="hoaquason-card-4x3.webp" alt="Hoa Quả Sơn Farm" loading="lazy"></div>
-        <div class="body"><span class="label">Live · E-commerce</span><h3>Hoa Quả Sơn Farm</h3><p>A premium fruit storefront — hand-drawn Canvas, an origin map and three in-browser ML systems.</p><div class="chips"><span class="chip">Canvas</span><span class="chip">SVG</span><span class="chip">Gemini API</span></div><div class="links"><a class="link" href="#case-fruit">Case study ›</a><a class="link" href="https://hoaquason-khanhhoa.web.app/" target="_blank" rel="noopener">Visit site ↗</a></div></div>
+        <div class="body"><span class="label">Live · E-commerce</span><h3>Hoa Quả Sơn Farm</h3><p>A premium fruit storefront — hand-drawn Canvas, an origin map and three in-browser ML systems.</p><div class="chips"><span class="chip">Canvas</span><span class="chip">Firebase</span><span class="chip">Gemini API</span></div><div class="links"><a class="link" href="#case-fruit">Case study ›</a><a class="link" href="https://hoaquason-khanhhoa.web.app/" target="_blank" rel="noopener">Visit site ↗</a></div></div>
       </article>
       <article class="card tile rv">
         <div class="img"><img src="workgarden-project-4x3-v2.webp" alt="WorkGarden Kanban board" loading="lazy"></div>
@@ -651,9 +628,9 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
     <div class="cs-img rv"><img src="hoaquason-hero.jpg" width="1919" height="826" alt="Hoa Quả Sơn Farm — real product screenshot" loading="lazy"><span class="caption">Real product · Live on Firebase</span></div>
     <div class="meta-row rv">
       <div><small>Role</small><div>Design &amp; frontend, end to end</div></div>
-      <div><small>Stack</small><div>Vanilla JS · Canvas · SVG · Gemini API · TensorFlow.js</div></div>
+      <div><small>Stack</small><div>Vanilla JS · Canvas · TensorFlow.js · Gemini API · Firebase</div></div>
       <div><small>Status</small><div>Live · In production</div></div>
-      <div><small>Constraint</small><div>Zero backend · Zero framework</div></div>
+      <div><small>Backend</small><div>Firebase BaaS — login &amp; order history</div></div>
     </div>
     <div class="bento">
       <div class="card rv"><span class="num">01 — The Brief</span><h3>Premium, before a single word</h3><p>Every luxury fruit brand runs the same playbook. The harder brief: <strong>make the price feel justified before the visitor reads anything</strong> — a job that falls entirely on design and frontend craft.</p></div>
@@ -670,17 +647,23 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
       <div class="map-col"><div class="map-frame" id="vn-map-host"></div><p class="map-cap"><b>📍 Khánh Hòa</b> — single-origin region · hover to explore</p></div>
     </div>
     <div class="card block rv">
-      <span class="num">04 — Three ML Systems, Zero Backend</span>
+      <span class="num">04 — Three ML Systems, Real Data</span>
       <h3>Where this becomes ML engineering</h3>
       <p>Smart features ship as quiet micro-interactions, never an “AI feature” banner. <strong>Three are real ML systems, not API wrappers</strong>, and each degrades to a documented fallback so the storefront stays usable. A fourth — the delivery-zone check — is rule-based on purpose.</p>
       <div class="tbl-wrap"><table class="tbl"><tr><th>System</th><th>Technique</th><th>Where it runs</th></tr>
-        <tr><td>Product Recommender</td><td>Item-based collaborative filtering — co-occurrence over purchase history + curated combos</td><td>Client-side, in-memory</td></tr>
-        <tr><td>Farm Advisor Chatbot</td><td>RAG — keyword retrieval over knowledge base + catalogue, injected as context</td><td>Client retrieval · Gemini generation</td></tr>
+        <tr><td>Product Recommender</td><td>Item-based collaborative filtering — co-occurrence over real orders, recent orders weighted higher (90-day decay)</td><td>Built from Firestore orders · served as anonymous aggregate stats</td></tr>
+        <tr><td>Farm Advisor Chatbot</td><td>RAG — keyword retrieval over knowledge base + catalogue, injected as context</td><td>Client retrieval · Gemini via a Cloud Function</td></tr>
         <tr><td>Fruit Recogniser</td><td>Transfer learning — MobileNet embeddings, cosine-similarity KNN over the farm's own photos</td><td>TensorFlow.js, 100% client-side</td></tr>
       </table></div>
       <p class="insight">It started as a colour heuristic — plausible numbers, no model. Rebuilding it on embeddings was the difference between a UI trick and an ML system honest about how it fails.</p>
-      <div class="metrics"><div class="metric"><b>3</b><span>ML systems — recommender, RAG, vision</span></div><div class="metric"><b>0</b><span>Backend servers</span></div><div class="metric"><b>21</b><span>Reference photos across 14 SKUs</span></div></div>
+      <div class="metrics"><div class="metric"><b>3</b><span>ML systems — recommender, RAG, vision</span></div><div class="metric"><b>0</b><span>API keys shipped to the browser</span></div><div class="metric"><b>21</b><span>Reference photos across 14 SKUs</span></div></div>
       <div class="note"><b>Honest about the limits</b><p>MobileNet is pretrained on ImageNet, not fine-tuned on Vietnamese fruit — it works by nearest-neighbour against the farm's own photos. Next step: more labelled photos and a fine-tuned classification head. I'm building the theory behind that through HarvardX: Data Science — Machine Learning.</p></div>
+    </div>
+    <div class="card block rv">
+      <span class="num">05 — The Backend</span>
+      <h3>Accounts, orders and an admin — on Firebase</h3>
+      <p>A backend-as-a-service, so a solo build still gets <strong>real accounts and real data</strong> without servers to babysit.</p>
+      <ul class="mini-list"><li><b>Login</b> — Google or email, with a customer profile</li><li><b>Order history</b> — each customer sees their own past orders; Firestore security rules keep everyone else's private</li><li><b>Admin</b> — an admin role updates order status and rebuilds the recommender from real orders</li><li><b>AI proxy</b> — Gemini calls go through a Cloud Function, so the API key never reaches the browser</li></ul>
     </div>
   </div>
 </section>
@@ -777,9 +760,9 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
   <div class="wrap">
     <div class="head rv"><span class="eyebrow">Skills</span><h2 class="h2">Tools &amp; <em class="acc">media.</em></h2><p class="lead">Content that moves — for social, product and brand — and the code to ship it.</p></div>
     <div class="spec">
-      <div class="spec-row rv"><div class="k"><svg class="sk-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>Development</div><div class="v"><span>HTML5&nbsp;<i>·</i></span> <span>CSS3&nbsp;<i>·</i></span> <span>JavaScript&nbsp;<i>·</i></span> <span>Angular&nbsp;<i>·</i></span> <span>WordPress&nbsp;<i>·</i></span> <span>Canvas API&nbsp;<i>·</i></span> <span>Web Audio API&nbsp;<i>·</i></span> <span>Git&nbsp;<i>·</i></span> <span>Vercel</span></div></div>
-      <div class="spec-row rv"><div class="k"><svg class="sk-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.3v5.4l4.6-2.7z"/></svg>Design &amp; Motion</div><div class="v"><span>After Effects&nbsp;<i>·</i></span> <span>CapCut&nbsp;<i>·</i></span> <span>Figma&nbsp;<i>·</i></span> <span>Canva&nbsp;<i>·</i></span> <span>Framer&nbsp;<i>·</i></span> <span>Webflow</span></div></div>
-      <div class="spec-row rv"><div class="k"><svg class="sk-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3.5l1.9 5 5 1.9-5 1.9-1.9 5-1.9-5-5-1.9 5-1.9z"/><path d="M18.5 14.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>AI Tools</div><div class="v"><span>Nano Banana Pro&nbsp;<i>·</i></span> <span>Veo 3&nbsp;<i>·</i></span> <span>Kling&nbsp;<i>·</i></span> <span>Whisk&nbsp;<i>·</i></span> <span>Claude&nbsp;<i>·</i></span> <span>ChatGPT</span></div></div>
+      <div class="spec-row rv"><div class="k"><svg class="sk-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>Development</div><div class="v"><span>HTML5&nbsp;<i>·</i></span> <span>CSS3&nbsp;<i>·</i></span> <span>JavaScript&nbsp;<i>·</i></span> <span>Python&nbsp;<i>·</i></span> <span>Angular&nbsp;<i>·</i></span> <span>WordPress&nbsp;<i>·</i></span> <span>Firebase (BaaS)&nbsp;<i>·</i></span> <span>Canvas API&nbsp;<i>·</i></span> <span>Web Audio API&nbsp;<i>·</i></span> <span>Git&nbsp;<i>·</i></span> <span>Vercel</span></div></div>
+      <div class="spec-row rv"><div class="k"><svg class="sk-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.3v5.4l4.6-2.7z"/></svg>Design &amp; Motion</div><div class="v"><span>After Effects&nbsp;<i>·</i></span> <span>CapCut&nbsp;<i>·</i></span> <span>Figma&nbsp;<i>·</i></span> <span>Procreate&nbsp;<i>·</i></span> <span>Canva&nbsp;<i>·</i></span> <span>Framer&nbsp;<i>·</i></span> <span>Webflow</span></div></div>
+      <div class="spec-row rv"><div class="k"><svg class="sk-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3.5l1.9 5 5 1.9-5 1.9-1.9 5-1.9-5-5-1.9 5-1.9z"/><path d="M18.5 14.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>AI Tools</div><div class="v"><span>Nano Banana Pro&nbsp;<i>·</i></span> <span>Veo 3&nbsp;<i>·</i></span> <span>Kling&nbsp;<i>·</i></span> <span>Whisk&nbsp;<i>·</i></span> <span>Dreamina&nbsp;<i>·</i></span> <span>Claude&nbsp;<i>·</i></span> <span>ChatGPT</span></div></div>
       <div class="spec-row rv"><div class="k"><svg class="sk-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M6.6 7.3l3.8 3.4M6.6 16.7l3.8-3.4M14 12h3"/></svg>ML / AI Engineering</div><div class="v"><span>Python&nbsp;<i>·</i></span> <span>Recommendation Systems&nbsp;<i>·</i></span> <span>RAG Architecture&nbsp;<i>·</i></span> <span>Prompt Engineering&nbsp;<i>·</i></span> <span>Gemini / Claude API</span></div></div>
       <div class="spec-row rv"><div class="k"><svg class="sk-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.6-3.6-9S9.6 5.6 12 3z"/></svg>Languages</div><div class="v"><span>Vietnamese&nbsp;<i>·</i></span> <span>English — professional&nbsp;<i>·</i></span> <span>French&nbsp;<i>·</i></span> <span>Mandarin&nbsp;<i>·</i></span> <span>German A1</span></div></div>
     </div>
@@ -892,13 +875,18 @@ const hexCv=document.getElementById('hex-canvas'),hexCtx=hexCv.getContext('2d'),
 let hStartT=null,hDone=false;const hTrig=[false,false,false,false,false,false];const H_DUR=4200;
 const hexWide=()=>innerWidth>900;
 function hexResize(){hexCv.width=hexArea.offsetWidth;hexCv.height=hexArea.offsetHeight;}
-function hexCX(){return hexCv.width/2;}function hexCY(){return hexCv.height/2;}function hexRad(){return Math.min(hexCv.width*.16,hexCv.height*.22,165);}
+function hexCX(){return hexCv.width/2;}function hexCY(){return hexCv.height/2;}let hexR=165;function hexRad(){return hexR;}
 function hexVerts(){const cx=hexCX(),cy=hexCY(),R=hexRad();return Array.from({length:6},(_,i)=>{const a=(i*60-90)*Math.PI/180;return{x:cx+R*Math.cos(a),y:cy+R*Math.sin(a)};});}
 function hexPtAt(p){const v=hexVerts(),s=Math.floor(p)%6,t=p-Math.floor(p);const fr=v[s],to=v[(s+1)%6];return{x:fr.x+(to.x-fr.x)*t,y:fr.y+(to.y-fr.y)*t};}
 function layoutSvcCards(){
-  if(!hexWide()){svcCards.forEach(c=>{c.style.left='';c.style.top='';c.classList.add('vis');});return;}
-  hexResize();const cx=hexCX(),cy=hexCY(),R=hexRad(),OFF=R+160;jnSvc.style.left=cx+'px';jnSvc.style.top=cy+'px';
-  svcCards.forEach((c,i)=>{const a=(i*60-90)*Math.PI/180;c.style.left=(cx+OFF*Math.cos(a)*1.08)+'px';c.style.top=(cy+OFF*Math.sin(a))+'px';});}
+  if(!hexWide()){hexArea.style.minHeight='';svcCards.forEach(c=>{c.style.left='';c.style.top='';c.classList.add('vis');});return;}
+  // spread the ring so the tallest card never touches its neighbour, and grow the area to hold it
+  const W=hexArea.offsetWidth,cw=svcCards[0].offsetWidth,maxH=Math.max(...[...svcCards].map(c=>c.offsetHeight));
+  const OFF=Math.max(Math.min(W*.16,165)+160,maxH+28);hexArea.style.minHeight=Math.ceil(2*OFF+maxH+24)+'px';
+  hexResize();const cx=hexCX(),cy=hexCY(),xo=Math.min(OFF*.866*1.08,W/2-cw/2-4);
+  // hex grows with the ring so its corners sit just inside the cards
+  hexR=Math.max(110,Math.min(W*.2,OFF-maxH/2-24,(xo-cw/2-28)/.866));jnSvc.style.left=cx+'px';jnSvc.style.top=cy+'px';
+  svcCards.forEach((c,i)=>{const a=(i*60-90)*Math.PI/180,k=Math.cos(a);c.style.left=(cx+(Math.abs(k)<.01?0:Math.sign(k)*xo))+'px';c.style.top=(cy+OFF*Math.sin(a))+'px';});}
 function drawHex(p){hexCtx.clearRect(0,0,hexCv.width,hexCv.height);const v=hexVerts();
   hexCtx.beginPath();v.forEach((pt,i)=>i===0?hexCtx.moveTo(pt.x,pt.y):hexCtx.lineTo(pt.x,pt.y));hexCtx.closePath();hexCtx.strokeStyle='rgba(160,120,24,.16)';hexCtx.lineWidth=1;hexCtx.stroke();
   const fs=Math.min(Math.floor(p),6),pt=p-Math.floor(p);
@@ -908,6 +896,8 @@ function drawHex(p){hexCtx.clearRect(0,0,hexCv.width,hexCv.height);const v=hexVe
 function hexLoop(ts){if(!hStartT)hStartT=ts;const p=Math.min(6,(ts-hStartT)/H_DUR*6);drawHex(p);for(let i=0;i<=Math.floor(p)&&i<6;i++){if(!hTrig[i]){hTrig[i]=true;((idx)=>setTimeout(()=>svcCards[idx]&&svcCards[idx].classList.add('vis'),60))(i);}}if(p<6)requestAnimationFrame(hexLoop);}
 new IntersectionObserver(es=>{if(es[0].isIntersecting&&!hDone){hDone=true;layoutSvcCards();if(!hexWide())return;if(reduceMotion){drawHex(6);svcCards.forEach(c=>c.classList.add('vis'));}else requestAnimationFrame(hexLoop);}},{threshold:.1}).observe(hexArea);
 addEventListener('resize',()=>{if(!hDone)return;layoutSvcCards();if(hexWide())drawHex(6);});
+// card heights change once the web fonts land — re-seat the ring then
+if(document.fonts)document.fonts.ready.then(()=>{if(!hDone||!hexWide())return;layoutSvcCards();if(hTrig[5]||reduceMotion)drawHex(6);});
 
 /* ── SSM phone scenes (unchanged from the main portfolio) ── */
 const pCv=document.getElementById('phone-cv'),pCtx=pCv.getContext('2d'),phInner=document.getElementById('ph-inner');
