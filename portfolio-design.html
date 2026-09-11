@@ -25,7 +25,7 @@
   --ease:cubic-bezier(.16,1,.3,1);
   --gold:#f0c040;--gold-2:#c9a84c;
   --r-lg:28px;--r-md:20px;--r-sm:14px;
-  --t-hero:clamp(64px,calc(11vw + 2px),158px);
+  --t-hero:clamp(66px,calc(11vw + 4px),160px);
   --t-h2:clamp(42px,6.2vw,84px);
   --t-h3:clamp(30px,3.6vw,48px);
   --t-h4:clamp(23px,2.1vw,29px);
@@ -98,7 +98,7 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;width:10
 #hero::before{content:"";position:absolute;left:50%;top:42%;width:min(1200px,140vw);height:680px;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(240,192,64,.14),rgba(240,192,64,0) 62%);pointer-events:none}
 #hero .wrap{position:relative;width:100%}
 .pill{display:inline-block;font-size:15px;font-weight:500;color:var(--acc);background:rgba(240,192,64,.13);border-radius:999px;padding:8px 18px;margin-bottom:clamp(24px,4vh,40px)}
-#hero h1{display:inline-block;font-family:var(--serif);font-weight:700;font-size:var(--t-hero);letter-spacing:-.01em;line-height:1.02;background:var(--acc-grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding:.04em .06em .16em;margin-bottom:-.12em}
+#hero h1{display:inline-block;font-family:var(--serif);font-weight:700;font-size:var(--t-hero);letter-spacing:-.01em;line-height:1.02;background:var(--acc-grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding:.04em .06em .16em;margin-bottom:-.07em;scale:1.03 1.07}
 .h-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(28px,3.6vw,48px);line-height:1.1;margin-top:clamp(14px,2vh,22px)}
 .h-meta{font-size:clamp(18px,1.6vw,21px);color:var(--fg2);margin-top:14px}
 .h-meta i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;margin-right:10px;vertical-align:middle;box-shadow:0 0 0 4px rgba(34,197,94,.16);animation:pulse 2.4s ease-in-out infinite}
@@ -111,13 +111,13 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;width:10
 .stat b i{font-style:normal;color:var(--acc-solid);margin-left:.03em}
 .stat>span{display:block;font-size:15px;color:var(--fg2);margin-top:10px;line-height:1.35}
 /* hero entrance — text slides in from the left, the headline wipes in */
-.js #hero .in-seq>*{opacity:0;animation:slideL 1.1s var(--ease) forwards}
+.js #hero .in-seq>*{opacity:0;animation:slideL 2.1s var(--ease) forwards}
 .js #hero .in-seq>:nth-child(1){animation-delay:.05s}
-.js #hero .in-seq>h1{opacity:1;animation:wipeIn 1.6s var(--ease) .2s both}
+.js #hero .in-seq>h1{opacity:1;animation:wipeIn 2.6s var(--ease) .2s both}
 .js #hero .in-seq>:nth-child(3){animation-delay:.6s}
 .js #hero .in-seq>:nth-child(4){animation-delay:.75s}
-.js #hero .in-seq>:nth-child(5){animation:heroUp 1s var(--ease) .95s forwards}
-.js #hero .in-seq>:nth-child(6){animation:heroUp 1s var(--ease) 1.1s forwards}
+.js #hero .in-seq>:nth-child(5){animation:heroUp 2s var(--ease) .95s forwards}
+.js #hero .in-seq>:nth-child(6){animation:heroUp 2s var(--ease) 1.1s forwards}
 @keyframes slideL{from{opacity:0;transform:translateX(-64px)}to{opacity:1;transform:none}}
 @keyframes wipeIn{from{clip-path:inset(0 100% 0 0);transform:translateX(-48px)}to{clip-path:inset(0 0 0 0);transform:none}}
 @keyframes heroUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
@@ -138,6 +138,8 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;width:10
 .ab-card li{position:relative;padding-left:20px;color:var(--fg2);font-size:17px;line-height:1.55}
 .ab-card li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--acc)}
 .ab-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.nw{white-space:nowrap}
+#experience .e2e{max-width:1000px;margin:64px auto 0}
 .e2e{margin-top:20px;padding:clamp(32px,4.4vw,56px)}
 .e2e h3{font-size:var(--t-h3);letter-spacing:-.03em;line-height:1.08;max-width:760px}
 .e2e>p{color:var(--fg2);max-width:680px;margin-top:14px}
@@ -187,7 +189,7 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;width:10
 
 /* ═══════════════ CASE STUDIES ═══════════════ */
 .cs-img{position:relative;border-radius:var(--r-lg);overflow:hidden;margin-top:56px;box-shadow:inset 0 0 0 1px var(--hair)}
-.cs-img img{width:100%;max-height:560px;object-fit:cover;object-position:top}
+.cs-img img{width:100%;max-height:560px;height:auto;object-fit:cover;object-position:top}
 .meta-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:14px}
 .meta-row>div{background:var(--card);border-radius:var(--r-md);padding:18px 22px}
 .meta-row small{display:block;font-size:14px;color:var(--fg2);margin-bottom:4px}
@@ -295,7 +297,7 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;width:10
 .rd-g{background:#ffd54a;box-shadow:0 0 8px rgba(255,213,74,.7)}
 .rd-r{background:#ff5a5a;box-shadow:0 0 8px rgba(255,90,90,.7)}
 .inline-img{position:relative;border-radius:var(--r-md);overflow:hidden;margin-top:26px}
-.inline-img img{width:100%;max-height:460px;object-fit:cover;object-position:center 40%}
+.inline-img img{width:100%;max-height:460px;height:auto;object-fit:cover;object-position:center 40%}
 .formula{font-family:var(--mono);font-size:15px;color:var(--fg);background:rgba(0,0,0,.35);border-radius:12px;padding:14px 18px;margin-top:14px;overflow-x:auto;white-space:nowrap}
 
 /* ═══════════════ SKILLS (white) ═══════════════ */
@@ -308,6 +310,23 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;width:10
 .spec-row:hover .v{color:var(--fg)}
 .spec-row .v span{white-space:nowrap}
 .spec-row .v i{font-style:normal;color:var(--gold-2);margin:0 .12em}
+
+/* ═══════════════ EXPERIENCE (white, same spec-sheet language as Skills) ═══════════════ */
+#experience{padding-bottom:clamp(48px,6vw,80px)}
+#experience+#services{padding-top:clamp(48px,6vw,80px)}
+.exp{max-width:1000px;margin:64px auto 0}
+.exp-group{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin:0 4px 14px}
+.exp-group:not(:first-child){margin-top:56px}
+.exp-row{display:grid;grid-template-columns:340px 1fr;gap:32px;align-items:baseline;padding:28px 4px;border-top:1px solid var(--line)}
+.exp-row:last-of-type,.exp-row:has(+.exp-group){border-bottom:1px solid var(--line)}
+.exp-row h3{font-size:21px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.exp-row .org{display:block;margin-top:6px;font-size:15px;color:var(--fg2);line-height:1.4}
+.exp-row time{display:block;margin-top:8px;font-size:14px;font-weight:600;color:var(--acc)}
+.exp-row ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.exp-row li{position:relative;padding-left:20px;font-size:18px;line-height:1.55;color:#424245;transition:color .3s}
+.exp-row li::before{content:"";position:absolute;left:2px;top:.66em;width:6px;height:6px;border-radius:50%;background:var(--acc-solid)}
+.exp-row:hover li{color:var(--fg)}
+.exp-row li b{color:var(--fg);font-weight:600}
 
 /* ═══════════════ CONTACT (dark) ═══════════════ */
 #contact{min-height:92vh;display:flex;align-items:center;text-align:center;overflow:hidden}
@@ -362,6 +381,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
   .svc-card{position:static;width:auto;transform:none!important;opacity:1}
   .ab-row,.split,.tiles,.media-2{grid-template-columns:1fr}
   .phone-col{margin-top:8px}
+  .exp-row{grid-template-columns:260px 1fr;gap:24px}
 }
 @media(max-width:760px){
   :root{--t-body:17px}
@@ -373,11 +393,13 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
   .ab-cards,.hex-area,.linh-gallery,.flora-trio{grid-template-columns:1fr}.ab-cards>:last-child{grid-column:auto}
   .steps{grid-template-columns:1fr 1fr}
   .spec-row{grid-template-columns:1fr;gap:10px;padding:22px 2px}.spec-row .k{font-size:19px}.spec-row .v{font-size:18px}.sk-ico{transform:none}
+  .exp-row{grid-template-columns:1fr;gap:14px;padding:24px 2px}.exp-row h3{font-size:19px}.exp-row li{font-size:17px}
   .metric span{font-size:13px}
   .flora-trio{max-width:360px;margin-left:auto;margin-right:auto}
   #jn-fixed{width:46px;height:46px;right:14px;bottom:14px}#jn-fixed svg{width:46px;height:46px}#jn-fixed .jnf-inner{font-size:14px}
 }
 @media(max-width:460px){.ct-cards,.steps{grid-template-columns:1fr}.metrics{gap:8px}.metric{padding:16px 6px}}
+@media(max-width:360px){.metric{min-width:0}.metric b{font-size:28px}.metric span{font-size:12px;overflow-wrap:anywhere}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .rv,.js #hero .in-seq>*{opacity:1!important;transform:none!important}
@@ -403,6 +425,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
     <a href="#hero" class="logo">Jade <b>Nguyen</b></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -416,12 +439,12 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
   <div class="wrap in-seq">
     <div><span class="pill">Exploring AI / ML Engineering</span></div>
     <h1>Digital Designer</h1>
-    <p class="h-sub">Frontend Web Developer</p>
+    <p class="h-sub">Frontend Web Developer <span class="nw">&amp; Motion Design</span></p>
     <p class="h-meta"><i></i>Available for remote, full-time work</p>
     <div class="cta"><a class="btn btn-fill" href="#work">Explore my work</a><a class="btn btn-ghost" href="#contact">Get in touch</a></div>
     <div class="stats">
-      <div class="stat" title="Motion design &amp; frontend development since 2020"><b><span id="hn1">6</span><i>+</i></b><span>Years motion<br>&amp; frontend</span></div>
-      <div class="stat" title="Community &amp; study group leadership (volunteer)"><b><span id="hn2">90</span><i>+</i></b><span>Community<br>members led</span></div>
+      <div class="stat" title="Designing and building digital products since 2020"><b><span id="hn1">6</span><i>+</i></b><span>Years designing<br>&amp; building</span></div>
+      <div class="stat" title="Scaled a distributed, multi-timezone team from 20+ to 90+ members"><b><span id="hn2">90</span><i>+</i></b><span>Team<br>members led</span></div>
       <div class="stat" title="End-to-end: concept, design, build, deploy"><b><span id="hn3">50</span><i>+</i></b><span>Projects<br>delivered</span></div>
       <div class="stat"><b><span id="hn4">5</span></b><span>Languages<br>spoken</span></div>
     </div>
@@ -455,11 +478,46 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
       </div>
       <div class="card ab-card rv">
         <span class="label">Team</span><h3>Building in a team</h3>
-        <ul><li>Frontend design in an <span class="hl">8-person team</span> — an Angular work app for <span class="hl">100+ staff</span>.</li><li><span class="hl">50+ end-to-end projects</span>, concept through deploy.</li><li>Clear handoffs, obvious ownership — I unblock others early.</li></ul>
+        <ul><li>Worked in an <span class="hl">8-person team</span> building an <span class="hl">internal task-management app</span>.</li><li><span class="hl">50+ end-to-end projects</span>, concept through deploy.</li><li>Clear handoffs, obvious ownership — I unblock others early.</li></ul>
       </div>
       <div class="card ab-card rv">
         <span class="label">Philosophy</span><h3>Always creative</h3>
         <ul><li><span class="hl">Curious past the brief</span> — Canvas, Web Audio, Angular or machine learning, whatever the work demands.</li><li>I'd rather say <span class="hl">“I don't know yet, give me a week”</span> than pretend.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ EXPERIENCE · white ═════════ -->
+<section id="experience" class="light">
+  <div class="wrap">
+    <div class="head rv"><span class="eyebrow">Experience</span><h2 class="h2">Six years of <em class="acc">shipping.</em></h2><p class="lead">Employed, freelance and self-run — designing and building digital products end to end.</p></div>
+    <div class="exp">
+      <p class="exp-group rv">NGO · remote, multi-timezone</p>
+      <div class="exp-row rv">
+        <div><h3>Operations Manager — Communications &amp; Design</h3><span class="org">Non-governmental organisation</span><time>2021 – Present</time></div>
+        <ul>
+          <li>Scaled a distributed team from <b>20+ to 90+ members (4.5×)</b> with <b>90–95% retention</b>.</li>
+          <li><b>Owned design quality org-wide</b> — set the brand guidelines, signed off every design before publication, led the design sub-team and designed campaign visuals hands-on.</li>
+          <li>Rebuilt the operating process with senior leadership and co-led a <b>17-project portfolio</b> across Europe, Asia, Australia, the US and Canada.</li>
+        </ul>
+      </div>
+      <div class="exp-row rv">
+        <div><h3>Product Designer — Task-Management App</h3><span class="org">8-person cross-functional team</span><time>~4 months</time></div>
+        <ul><li>Designed the app with a dedicated PM and engineers — and <b>coded part of it myself</b> alongside the engineering team.</li></ul>
+      </div>
+      <div class="exp-row rv">
+        <div><h3>Product Designer — Communications Website</h3><span class="org">4-person cross-functional team</span><time>Ongoing</time></div>
+        <ul><li>Designing with a manager and an engineer — <b>working directly with the engineer through the build</b>, not in isolation.</li></ul>
+      </div>
+      <p class="exp-group rv">Independent</p>
+      <div class="exp-row rv">
+        <div><h3>Freelance Web Designer</h3><span class="org">Self-employed</span><time>2021 – Present</time></div>
+        <ul><li>Design and build websites for a <b>small base of repeat clients</b> — scoping, design, delivery and revisions, run solo.</li></ul>
+      </div>
+      <div class="exp-row rv">
+        <div><h3>Store Owner &amp; Designer — Zazzle</h3><span class="org">Print-on-demand e-commerce</span><time>Ongoing</time></div>
+        <ul><li>Design and run a storefront end to end — apparel, mugs, stickers and greeting cards — on <b>a live, self-service marketplace</b>.</li></ul>
       </div>
     </div>
     <div class="card e2e rv">
@@ -524,7 +582,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
 <section id="case-ssm" class="light">
   <div class="wrap">
     <div class="head rv"><span class="eyebrow">Case Study 01 · Live Product</span><h2 class="h2">Designing for <em class="acc">drowsy users.</em></h2><p class="lead">A live product, not a concept — shipped on Product Hunt, monetised, built solo.</p><div class="links"><a class="link" href="https://sleep-sound-mixer-seven.vercel.app/" target="_blank" rel="noopener">sleep-sound-mixer-seven.vercel.app ↗</a></div></div>
-    <div class="cs-img rv"><img src="sleepsoundmixer-hero.jpg" alt="SleepSoundMixer — real product screenshot" loading="lazy"><span class="caption">Real product · Live on Vercel</span></div>
+    <div class="cs-img rv"><img src="sleepsoundmixer-hero.jpg" width="1895" height="853" alt="SleepSoundMixer — real product screenshot" loading="lazy"><span class="caption">Real product · Live on Vercel</span></div>
     <div class="meta-row rv">
       <div><small>Role</small><div>Solo designer &amp; developer</div></div>
       <div><small>Stack</small><div>Vanilla JS · Web Audio · Canvas</div></div>
@@ -590,7 +648,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
 <section id="case-fruit" class="dark">
   <div class="wrap">
     <div class="head rv"><span class="eyebrow">Case Study 02 · Live Product</span><h2 class="h2">When the medium <em class="acc">is the message.</em></h2><p class="lead">A live storefront for a premium Vietnamese fruit farm — real photography for trust, hand-drawn Canvas for craft.</p><div class="links"><a class="link" href="https://hoaquason-khanhhoa.web.app/" target="_blank" rel="noopener">hoaquason-khanhhoa.web.app ↗</a></div></div>
-    <div class="cs-img rv"><img src="hoaquason-hero.jpg" alt="Hoa Quả Sơn Farm — real product screenshot" loading="lazy"><span class="caption">Real product · Live on Firebase</span></div>
+    <div class="cs-img rv"><img src="hoaquason-hero.jpg" width="1919" height="826" alt="Hoa Quả Sơn Farm — real product screenshot" loading="lazy"><span class="caption">Real product · Live on Firebase</span></div>
     <div class="meta-row rv">
       <div><small>Role</small><div>Design &amp; frontend, end to end</div></div>
       <div><small>Stack</small><div>Vanilla JS · Canvas · SVG · Gemini API · TensorFlow.js</div></div>
@@ -631,7 +689,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
 <section id="case-task" class="light">
   <div class="wrap">
     <div class="head rv"><span class="eyebrow">Case Study 03 · Self-Initiated · Angular</span><h2 class="h2">Density <em class="acc">without chaos.</em></h2><p class="lead">WorkGarden — a high-density task manager I designed and built in Angular for my own day: Kanban, goals, timer, recurring tasks, meetings and analytics in one app.</p></div>
-    <div class="cs-img rv"><img src="taskflow-kanban.jpg" alt="WorkGarden Kanban board — real product screenshot" loading="lazy"><span class="caption">Real product · Daily driver since 2026</span></div>
+    <div class="cs-img rv"><img src="taskflow-kanban.jpg" width="1919" height="863" alt="WorkGarden Kanban board — real product screenshot" loading="lazy"><span class="caption">Real product · Daily driver since 2026</span></div>
     <div class="meta-row rv">
       <div><small>Role</small><div>UI design · Frontend dev</div></div>
       <div><small>Stack</small><div>Angular · TypeScript · RxJS</div></div>
@@ -656,7 +714,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
 <section id="case-farm" class="dark">
   <div class="wrap">
     <div class="head rv"><span class="eyebrow">Case Study 04 · World-Building · AI + Code</span><h2 class="h2">A world that <em class="acc">breathes.</em></h2><p class="lead">Little World — a xianxia farm game. Concept, art direction, interface and code are mine; the spirit beasts are 3D-style renders I art-directed with AI, then brought to life in code.</p></div>
-    <div class="cs-img rv"><img src="farm-case-study-4x3-v1.webp" alt="Little World — isometric xianxia farm with spirit dragon, spirit phoenix, temple, and crystal-lined garden plots" loading="lazy"><span class="caption">Cover · Full world composite</span></div>
+    <div class="cs-img rv"><img src="farm-case-study-4x3-v1.webp" width="1448" height="1086" alt="Little World — isometric xianxia farm with spirit dragon, spirit phoenix, temple, and crystal-lined garden plots" loading="lazy"><span class="caption">Cover · Full world composite</span></div>
     <div class="meta-row rv">
       <div><small>Role</small><div>Concept · Art direction · Creative code</div></div>
       <div><small>Stack</small><div>Canvas · CSS · Vanilla JS · Phaser</div></div>
@@ -699,7 +757,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
     <div class="card block rv">
       <span class="num">04 — Grid &amp; HUD</span>
       <h3>Isometric math that snaps, a UI that retreats</h3>
-      <div class="inline-img"><img src="farm-overview.jpg" alt="Little World farm — the real running app, isometric tile grid fully planted, level 13" loading="lazy"><span class="caption">Real app · Level 13 · 40+ plots</span></div>
+      <div class="inline-img"><img src="farm-overview.jpg" width="1204" height="673" alt="Little World farm — the real running app, isometric tile grid fully planted, level 13" loading="lazy"><span class="caption">Real app · Level 13 · 40+ plots</span></div>
       <div class="bento" style="margin-top:16px">
         <div class="card" style="background:var(--card2)"><h3 style="margin-top:0">The grid</h3><p>True isometric, <strong>2:1 tiles</strong>. <code>gridToWorld</code> places a tile; <code>worldToGrid</code> snaps any click to the nearest cell. <strong>Green</strong> = free, <strong>red</strong> = blocked — placement validates live.</p><div class="formula">x = (gx − gy) · TILE_W/2 &nbsp;·&nbsp; y = (gx + gy) · TILE_H/2</div></div>
         <div class="card" style="background:var(--card2)"><h3 style="margin-top:0">The HUD</h3><p>The world is loud on purpose, so the interface is restraint: <strong>every chip on its own scrim</strong>, <strong>one jade accent</strong> for progress, and an <strong>icon-only rail</strong> that collapses. The level bar shows <code>2500/5440</code> <em>and</em> “2,940 points to level 14” — where you are, and what to do next.</p></div>
@@ -778,7 +836,7 @@ document.querySelectorAll('.rv').forEach(el=>rvIO.observe(el));
 /* ── nav: theme follows the section under it · active link ── */
 (function(){
   const nav=document.querySelector('nav'),secs=[...document.querySelectorAll('section')],links=[...document.querySelectorAll('.nav-links a:not(.nav-pill)')];
-  const group={hero:'',about:'#about',services:'#services',work:'#work','case-ssm':'#work','case-fruit':'#work','case-task':'#work','case-farm':'#work',skills:'#skills',contact:''};
+  const group={hero:'',about:'#about',experience:'#experience',services:'#services',work:'#work','case-ssm':'#work','case-fruit':'#work','case-task':'#work','case-farm':'#work',skills:'#skills',contact:''};
   let q=false;
   function upd(){q=false;let under=null,active=null;const probe=innerHeight*.35;
     for(const s of secs){const r=s.getBoundingClientRect();if(r.top<=26&&r.bottom>26)under=s;if(r.top<=probe&&r.bottom>probe)active=s;}
@@ -789,18 +847,24 @@ document.querySelectorAll('.rv').forEach(el=>rvIO.observe(el));
 
 /* ── hero counters ── */
 const statsData=[{id:'hn1',t:6,sfx:''},{id:'hn2',t:90,sfx:''},{id:'hn3',t:50,sfx:''},{id:'hn4',t:5,sfx:''}];
-const statsEase=t=>1-Math.pow(1-t,3);
+const statsEase=t=>1-Math.pow(1-t,2);
 function setStatsFinal(){statsData.forEach(d=>{const el=document.getElementById(d.id);if(el)el.textContent=d.t+d.sfx;});}
 function runStats(){
   if(reduceMotion){setStatsFinal();return;}
   if(document.hidden){document.addEventListener('visibilitychange',function once(){if(!document.hidden){document.removeEventListener('visibilitychange',once);runStats();}});return;}
-  const dur=900;let running=0;
-  statsData.forEach((d,i)=>{const el=document.getElementById(d.id);if(!el)return;const delay=i*80;let t0=null;running++;el.textContent='0'+d.sfx;
+  // whole count finishes inside 2s: 1.5s each, staggered 80ms; a gentle ease so the last digits don't crawl
+  const dur=1500,gap=80;let running=0;
+  statsData.forEach((d,i)=>{const el=document.getElementById(d.id);if(!el)return;const delay=i*gap;let t0=null;running++;el.textContent='0'+d.sfx;
     const step=ts=>{if(t0===null)t0=ts;const p=(ts-t0-delay)/dur;if(p<0){requestAnimationFrame(step);return;}el.textContent=Math.round(statsEase(Math.min(1,p))*d.t)+d.sfx;if(p<1)requestAnimationFrame(step);else running--;};
     requestAnimationFrame(step);});
-  setTimeout(()=>{if(running>0)setStatsFinal();},dur+statsData.length*80+1200);
+  setTimeout(()=>{if(running>0)setStatsFinal();},dur+statsData.length*gap+1200);
 }
-setTimeout(runStats,900);
+// start the moment the row enters the screen (on first load: the moment the hero starts fading it in, 1.1s)
+(function(){
+  const row=document.querySelector('.stats'),t0=performance.now(),shownAt=reduceMotion?0:1100;
+  if(!reduceMotion)statsData.forEach(d=>{const el=document.getElementById(d.id);if(el)el.textContent='0';});
+  new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting)return;o.disconnect();setTimeout(runStats,Math.max(0,shownAt-(performance.now()-t0)));},{threshold:.15}).observe(row);
+})();
 
 /* ── terminal ── */
 const termLines=[
@@ -817,7 +881,10 @@ const termLines=[
   {t:'// currently: open to remote work',c:'#ff2d9b'},
 ];
 let termDone=false;
-function runTerminal(){if(termDone)return;termDone=true;const out=document.getElementById('term-output'),cur=document.getElementById('term-cur');let li=0;function nextLine(){if(li>=termLines.length){cur.style.display='none';return;}const l=termLines[li++];const d=document.createElement('div');if(l.k!=null){d.innerHTML=`<span style="color:${l.kc}">${l.k}</span><span style="color:rgba(255,255,255,.4)">: </span><span style="color:${l.vc};font-style:italic">${l.v}</span><span style="color:rgba(255,255,255,.4)">,</span>`;}else{d.style.color=l.c||'inherit';d.textContent=l.t||' ';}out.appendChild(d);setTimeout(nextLine,110);}nextLine();}
+// every line is laid out (hidden) up front so the box has its final height and never pushes the cards below while it types
+const termCur=document.getElementById('term-cur'),termRows=termLines.map(l=>{const d=document.createElement('div');if(l.k!=null){d.innerHTML=`<span style="color:${l.kc}">${l.k}</span><span style="color:rgba(255,255,255,.4)">: </span><span style="color:${l.vc};font-style:italic">${l.v}</span><span style="color:rgba(255,255,255,.4)">,</span>`;}else{d.style.color=l.c||'inherit';d.textContent=l.t||' ';}d.style.visibility='hidden';document.getElementById('term-output').appendChild(d);return d;});
+termCur.style.visibility='visible';termRows[0].appendChild(termCur);
+function runTerminal(){if(termDone)return;termDone=true;let li=0;function nextLine(){if(li>=termRows.length){termCur.style.display='none';return;}const d=termRows[li++];d.style.visibility='visible';d.appendChild(termCur);setTimeout(nextLine,110);}nextLine();}
 new IntersectionObserver(es=>{if(es[0].isIntersecting)setTimeout(runTerminal,300);},{threshold:.2}).observe(document.querySelector('.terminal'));
 
 /* ── services hexagon (light-section palette) ── */
