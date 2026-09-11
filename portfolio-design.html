@@ -20,7 +20,7 @@
 /* ═══════════════ TOKENS ═══════════════ */
 :root{
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",Roboto,sans-serif;
-  --serif:'Cormorant Garamond',Georgia,serif;
+  --serif:'Cormorant Garamond','Cormorant Fallback',Georgia,serif;
   --mono:'Space Mono',ui-monospace,Menlo,monospace;
   --ease:cubic-bezier(.16,1,.3,1);
   --gold:#f0c040;--gold-2:#c9a84c;
@@ -35,6 +35,10 @@
   --t-label:15px;
   --wrap:1180px;
 }
+/* Georgia scaled to Cormorant's width and line box, so the hero doesn't jump when the web font lands */
+@font-face{font-family:'Cormorant Fallback';src:local('Georgia');size-adjust:79%;ascent-override:116%;descent-override:37%;line-gap-override:0%}
+@font-face{font-family:'Cormorant Fallback';src:local('Georgia Bold'),local('Georgia-Bold');font-weight:700;size-adjust:77%;ascent-override:119%;descent-override:38%;line-gap-override:0%}
+@font-face{font-family:'Cormorant Fallback';src:local('Georgia Italic'),local('Georgia-Italic');font-style:italic;size-adjust:80%;ascent-override:115%;descent-override:36%;line-gap-override:0%}
 /* every component reads its section's tokens */
 .light{--bg:#fff;--fg:#1d1d1f;--fg2:#6e6e73;--card:#f5f5f7;--card2:#fff;--acc:#9a7414;--acc-solid:#b8892a;
   --acc-grad:linear-gradient(100deg,#caa13d 0%,#a07818 45%,#7a5a0e 100%);--hair:rgba(0,0,0,.06);--line:#d2d2d7;--chip-line:#e3e3e8;--shadow:0 18px 44px rgba(0,0,0,.08)}
@@ -388,6 +392,8 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
   #jn-fixed{width:46px;height:46px;right:14px;bottom:14px}#jn-fixed svg{width:46px;height:46px}#jn-fixed .jnf-inner{font-size:14px}
 }
 @media(max-width:460px){.ct-cards{grid-template-columns:1fr}.metrics{gap:8px}.metric{padding:16px 6px}}
+/* narrow phones: buttons always stack, so the row can't flip from one line to two when Inter loads */
+@media(max-width:440px){.cta{flex-direction:column;align-items:center}}
 @media(max-width:360px){.metric{min-width:0}.metric b{font-size:28px}.metric span{font-size:12px;overflow-wrap:anywhere}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -463,15 +469,15 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
     <div class="ab-cards">
       <div class="card ab-card rv">
         <span class="label">Expertise</span><h3>Sharp visual eye</h3>
-        <ul><li>Motion work trained my eye for <span class="hl">timing</span> — I feel when a transition lands 80ms late, and fix it in code.</li><li><span class="hl">Careful and accountable</span> — pixel, timing and edge case checked before I call it done.</li></ul>
+        <ul><li><span class="hl">Timing</span> — I spot a transition 80ms late and fix it in code.</li><li><span class="hl">Design systems</span> — tokens and components that stay consistent.</li><li><span class="hl">Accessible by default</span> — contrast, focus, readable type.</li><li><span class="hl">Careful and accountable</span> — every edge case checked.</li></ul>
       </div>
       <div class="card ab-card rv">
         <span class="label">Team</span><h3>Team &amp; leadership</h3>
-        <ul><li>Led a <span class="hl">90+ person, multi-timezone team</span> — grown from 20+ with <span class="hl">90–95% retention</span>.</li><li>Worked in an <span class="hl">8-person team</span> building an <span class="hl">internal task-management app</span>.</li><li><span class="hl">50+ end-to-end projects</span>, concept through deploy.</li><li>Clear handoffs, obvious ownership — I unblock others early.</li></ul>
+        <ul><li>Led a <span class="hl">90+ person team</span> across time zones — <span class="hl">90–95% retention</span>.</li><li><span class="hl">8-person team</span> — built an internal task-management app.</li><li><span class="hl">50+ end-to-end projects</span>, concept to deploy.</li><li><span class="hl">Clear ownership</span> — I unblock others early.</li></ul>
       </div>
       <div class="card ab-card rv">
         <span class="label">Philosophy</span><h3>Always creative</h3>
-        <ul><li><span class="hl">Curious past the brief</span> — Canvas, Web Audio, Angular or machine learning, whatever the work demands.</li><li><span class="hl">Always learning</span> — I keep picking up new tools and techniques to sharpen my skills.</li></ul>
+        <ul><li><span class="hl">Curious past the brief</span> — Canvas, Web Audio or ML, whatever the work needs.</li><li><span class="hl">Always learning</span> — new tools and techniques to sharpen my skills.</li><li><span class="hl">AI in the daily workflow</span> — faster prototypes, same craft.</li><li><span class="hl">Real users decide</span> — I iterate on live feedback, not guesses.</li></ul>
       </div>
     </div>
   </div>
@@ -657,7 +663,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
         <tr><td>Fruit Recogniser</td><td>Transfer learning — MobileNet embeddings, cosine-similarity KNN over the farm's own photos</td><td>TensorFlow.js, 100% client-side</td></tr>
       </table></div>
       <p class="insight">It started as a colour heuristic — plausible numbers, no model. Rebuilding it on embeddings was the difference between a UI trick and an ML system honest about how it fails.</p>
-      <div class="metrics"><div class="metric"><b>3</b><span>ML systems — recommender, RAG, vision</span></div><div class="metric"><b>0</b><span>API keys shipped to the browser</span></div><div class="metric"><b>21</b><span>Reference photos across 14 SKUs</span></div></div>
+      <div class="metrics"><div class="metric"><b>3</b><span>ML systems — recommender, RAG, vision</span></div><div class="metric"><b>4</b><span>Firebase services — Auth, Firestore, Functions, Hosting</span></div><div class="metric"><b>21</b><span>Reference photos across 14 SKUs</span></div></div>
       <div class="note"><b>Honest about the limits</b><p>MobileNet is pretrained on ImageNet, not fine-tuned on Vietnamese fruit — it works by nearest-neighbour against the farm's own photos. Next step: more labelled photos and a fine-tuned classification head. I'm building the theory behind that through HarvardX: Data Science — Machine Learning.</p></div>
     </div>
   </div>
@@ -725,9 +731,9 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
       <h3>Designing a repeatable look</h3>
       <p>One locked <strong>style-frame</strong> — isometric three-quarter camera, PBR materials, cultivation-world light — with only the subject varied. <strong>23 spirit-flora and beasts</strong> from that one frame, plus a rarity language readable at a glance.</p>
       <div class="flora-trio">
-        <div class="flora-card"><img src="that-sac-mam-xoi-3d.webp" alt="Seven-Colour Rainbow Fruit Tree, 3D-style render from the master style-frame" loading="lazy"><b>Seven-Colour Rainbow Tree</b><em>Thất Sắc Mâm Xôi</em><span>Own painted backdrop — a finished scene.</span></div>
-        <div class="flora-card"><img src="11-bich-huyet-thanh-doc-thao-3d.webp" alt="Jadeblood Venom Herb — a low glowing ground-herb with jade pods on dark mineral soil, 3D-style render" loading="lazy"><b>Jadeblood Venom Herb</b><em>Bích Huyết Thanh Độc Thảo</em><span>Low ground-herb — clean at tile size.</span></div>
-        <div class="flora-card"><img src="fruit-tree-xich-chau-di-qua-3d-v1-transparent.webp" alt="Crimson-Pearl Fruit Tree — deep red fruit and gold-lit foliage, 3D-style render on transparency" loading="lazy"><b>Crimson-Pearl Fruit Tree</b><em>Xích Châu Di Quả</em><span>Transparent cutout — drops onto any tile.</span></div>
+        <div class="flora-card"><img src="that-sac-mam-xoi-3d.webp" alt="Seven-Colour Rainbow Fruit Tree, 3D-style render from the master style-frame" loading="lazy"><b>Seven-Colour Rainbow Tree</b><span>Own painted backdrop — a finished scene.</span></div>
+        <div class="flora-card"><img src="11-bich-huyet-thanh-doc-thao-3d.webp" alt="Jadeblood Venom Herb — a low glowing ground-herb with jade pods on dark mineral soil, 3D-style render" loading="lazy"><b>Jadeblood Venom Herb</b><span>Low ground-herb — clean at tile size.</span></div>
+        <div class="flora-card"><img src="fruit-tree-xich-chau-di-qua-3d-v1-transparent.webp" alt="Crimson-Pearl Fruit Tree — deep red fruit and gold-lit foliage, 3D-style render on transparency" loading="lazy"><b>Crimson-Pearl Fruit Tree</b><span>Transparent cutout — drops onto any tile.</span></div>
       </div>
       <div class="rarity"><span><i class="rd rd-w"></i>1–8 Star — common to uncommon</span><span><i class="rd rd-g"></i>King · Saint · Emperor</span><span><i class="rd rd-r"></i>Divine — legendary</span></div>
       <p class="insight">The creative work wasn't the prompt — it was the system that makes 23 assets feel authored, not generated.</p>
