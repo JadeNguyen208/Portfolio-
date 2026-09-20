@@ -383,6 +383,30 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
 #jn-fixed .jnf-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:17px;font-weight:700;color:#f0c040;z-index:2}
 #jn-fixed svg{position:relative}
 
+/* ═══════════════ PRINT · the page as an A4 document ═══════════════ */
+@media print{
+  @page{size:A4;margin:0}
+  html{background:#fff;zoom:.62;scroll-behavior:auto}
+  section.dark{background:#0a0a0a!important}
+  body{cursor:auto;overflow-x:visible}
+  nav,#cur-dot,#cur-ring1,#cur-ring2,#bg-canvas,#grain,#jn-fixed,.term-cursor,.scroll-hint{display:none!important}
+  .js .rv,.js .rv.in,.js #hero .in-seq>*,.js #hero .in-seq>* *{opacity:1!important;transform:none!important;transition:none!important}
+  /* the hero headline wipes in with clip-path; an unfinished wipe would crop it */
+  #hero h1,#hero .in-seq>*{animation:none!important;clip-path:none!important}
+  #term-output div{visibility:visible!important}
+  .hex-area{min-height:0!important;display:grid!important;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+  #hex-canvas,#jn-svc{display:none!important}
+  .svc-card{position:static!important;width:auto!important;transform:none!important;opacity:1!important}
+  section{break-before:page;padding:34px 0;min-height:0}
+  #hero{break-before:auto;min-height:161vh;padding:56px 0 40px;overflow:visible}
+  /* gradient-clipped text rasterises badly when printing: use flat accent ink */
+  #hero h1,em.acc,.tw-role b,.logo b{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:var(--acc)!important;scale:none!important}
+  #hero .h1,#hero h1{--t-hero:88px;font-size:88px!important;line-height:1.02!important}
+  .h2{font-size:38px!important}
+  .card,.exp-row,.svc-card,.tile,.metrics,figure,.phone-col,.map-col,.linh-card,.flora-card{break-inside:avoid}
+  h2,h3,.head{break-after:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 /* ═══════════════ RESPONSIVE ═══════════════ */
 @media(max-width:1060px){
   .ab-cards{grid-template-columns:1fr 1fr}.ab-cards>:last-child{grid-column:span 2}.tw-grid{grid-template-columns:1fr 1fr}
