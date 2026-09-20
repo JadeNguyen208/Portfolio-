@@ -324,6 +324,22 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;width:10
 .exp-row li::before{content:"";position:absolute;left:2px;top:.66em;width:6px;height:6px;border-radius:50%;background:var(--acc-solid)}
 .exp-row:hover li{color:var(--fg)}
 .exp-row li b{color:var(--fg);font-weight:600}
+#teamwork{overflow-x:clip}
+.tw-lede{max-width:1000px;margin:clamp(36px,4vw,56px) auto 0;display:grid;grid-template-columns:262px 1fr;gap:clamp(24px,3vw,40px);align-items:center;padding:clamp(26px,2.8vw,34px) clamp(26px,3vw,38px)}
+.tw-role b{display:block;font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(32px,3.6vw,42px);line-height:1;background:var(--acc-grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em;margin-bottom:10px}
+.tw-role span{display:block;font-size:15px;line-height:1.55;color:var(--fg2)}
+.tw-quote{border-left:2px solid var(--acc-solid);padding-left:clamp(18px,2vw,26px)}
+.tw-quote p{font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:var(--fg)}
+.tw-quote cite{display:block;margin-top:12px;font-style:normal;font-size:14px;color:var(--fg2)}
+.tw-card p{font-size:17px;line-height:1.6;color:var(--fg2)}
+.tw-card p .hl{color:var(--fg)}
+.tw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.js .tw-grid>.rv:nth-child(-n+3){transform:translate3d(-58px,0,0)}
+.js .tw-grid>.rv:nth-child(n+4){transform:translate3d(58px,0,0)}
+.js .tw-grid>.rv.in{transform:none}
+.js .tw-grid>.rv:nth-child(1),.js .tw-grid>.rv:nth-child(6){transition-delay:0s}
+.js .tw-grid>.rv:nth-child(2),.js .tw-grid>.rv:nth-child(5){transition-delay:.1s}
+.js .tw-grid>.rv:nth-child(3),.js .tw-grid>.rv:nth-child(4){transition-delay:.2s}
 
 /* ═══════════════ CONTACT (dark) ═══════════════ */
 #contact{min-height:92vh;display:flex;align-items:center;text-align:center;overflow:hidden}
@@ -369,7 +385,10 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
 
 /* ═══════════════ RESPONSIVE ═══════════════ */
 @media(max-width:1060px){
-  .ab-cards{grid-template-columns:1fr 1fr}.ab-cards>:last-child{grid-column:span 2}
+  .ab-cards{grid-template-columns:1fr 1fr}.ab-cards>:last-child{grid-column:span 2}.tw-grid{grid-template-columns:1fr 1fr}
+  .js .tw-grid>.rv:nth-child(odd){transform:translate3d(-58px,0,0);transition-delay:0s}
+  .js .tw-grid>.rv:nth-child(even){transform:translate3d(58px,0,0);transition-delay:.1s}
+  .js .tw-grid>.rv.in{transform:none}
 }
 @media(max-width:900px){
   .hex-area{min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:48px}
@@ -386,7 +405,10 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
   .nav-links li:not(.keep){display:none}
   .stats{display:grid;grid-template-columns:1fr 1fr;row-gap:32px}.stat:nth-child(3)::before{display:none}
   .bento{grid-template-columns:1fr}
-  .ab-cards,.hex-area,.linh-gallery,.flora-trio{grid-template-columns:1fr}.ab-cards>:last-child{grid-column:auto}
+  .ab-cards,.hex-area,.linh-gallery,.flora-trio,.tw-grid{grid-template-columns:1fr}.ab-cards>:last-child{grid-column:auto}
+  .js .tw-grid>.rv:nth-child(n){transform:translate3d(0,40px,0);transition-delay:0s}
+  .js .tw-grid>.rv.in{transform:none}
+  .tw-lede{grid-template-columns:1fr;gap:22px;align-items:start}.tw-quote{border-left:0;border-top:2px solid var(--acc-solid);padding-left:0;padding-top:18px}
   .spec-row{grid-template-columns:1fr;gap:10px;padding:22px 2px}.spec-row .k{font-size:19px}.spec-row .v{font-size:18px}.sk-ico{transform:none}
   .exp-row{grid-template-columns:1fr;gap:14px;padding:24px 2px}.exp-row h3{font-size:19px}.exp-row li{font-size:17px}
   .metric span{font-size:13px}
@@ -423,6 +445,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#teamwork">Teamwork</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -499,7 +522,7 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
           <li>Co-lead <b>19 long-running communications projects</b> with two other managers. Each project has its own lead, deputy and team leads, so decisions are made close to the work.</li>
           <li>Redesigned the operating process with senior leadership, and set the meeting and async routines for teams in Europe, Asia, Australia and North America.</li>
           <li>Handle team problems directly. When conflict comes up, I talk it through and find a better fit for the person instead of losing them.</li>
-          <li>Work independently with little oversight and deliver every task on time. <b>Leadership recognises me for hard work, creativity and commitment to the team.</b></li>
+          <li><b>Leadership trusts me to run work unsupervised</b> — I take it from brief to delivery, on time.</li>
         </ul>
       </div>
       <div class="exp-row rv">
@@ -519,6 +542,26 @@ body.cur-light{--c1:#9a7414;--c2:rgba(154,116,20,.6);--c3:rgba(154,116,20,.22)}
         <div><h3>Store Owner &amp; Designer — Zazzle</h3><span class="org">Print-on-demand e-commerce</span><time>Ongoing</time></div>
         <ul><li>Design the products and <b>run the store myself</b>: listings and store management across two product lines, apparel &amp; gifts and greeting cards.</li></ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ TEAMWORK · white ═════════ -->
+<section id="teamwork" class="light">
+  <div class="wrap">
+    <div class="head rv"><span class="eyebrow">Teamwork</span><h2 class="h2">How I work <em class="acc">with a&nbsp;team.</em></h2>
+      <p class="lead">Six years, remote and across time zones. The work belongs to the organisation — so what I can show here is <span class="hl">how I behave in a team, and how I run one</span>.</p></div>
+    <div class="card tw-lede rv">
+      <div class="tw-role"><b>Deputy</b><span>A senior position in the team: I answer to the lead, and the team leads and members answer to me.</span></div>
+      <div class="tw-quote"><p>My lead’s assessment: <span class="hl">diligent, hard-working and creative</span> — quick to pick up what’s current and bring it into the work.</p><cite>— Team lead’s review</cite></div>
+    </div>
+    <div class="tw-grid">
+      <div class="card ab-card tw-card rv"><span class="label">01 · Problems</span><h3>Talk it through first</h3><p>Anything that goes wrong gets <span class="hl">discussed before it gets decided</span> — raised early, not left to grow.</p></div>
+      <div class="card ab-card tw-card rv"><span class="label">02 · Process</span><h3>Changes follow the process</h3><p>Every change a member makes goes through the <span class="hl">agreed process</span>, so nobody downstream is caught out.</p></div>
+      <div class="card ab-card tw-card rv"><span class="label">03 · Urgency</span><h3>Act now, report after</h3><p>If it can’t wait I <span class="hl">handle it immediately</span> — then explain what I did and why. Nothing is done quietly.</p></div>
+      <div class="card ab-card tw-card rv"><span class="label">04 · Trust</span><h3>Respect the lead, stay honest</h3><p>I <span class="hl">back the team lead’s decision</span> once it’s made, and stay honest about what actually happened.</p></div>
+      <div class="card ab-card tw-card rv"><span class="label">05 · Support</span><h3>Close to every member</h3><p>I <span class="hl">check in when someone goes quiet</span> or gets stuck, and train new joiners until they can run on their own.</p></div>
+      <div class="card ab-card tw-card rv"><span class="label">06 · Quality</span><h3>Meet often, bring something new</h3><p><span class="hl">Regular meetings</span> keep quality rising — and I bring new tools and ideas back to the team.</p></div>
     </div>
   </div>
 </section>
